@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01Crooked Digits", "01Crooked Digits\01Crooked Digits.csproj", "{DA4D0E53-8F6A-4423-9104-97E160A8B002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeTriangle", "PrimeTriangle\PrimeTriangle.csproj", "{0FDE8F10-DB37-4108-8FDE-2C53372F80F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA4D0E53-8F6A-4423-9104-97E160A8B002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4D0E53-8F6A-4423-9104-97E160A8B002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4D0E53-8F6A-4423-9104-97E160A8B002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4D0E53-8F6A-4423-9104-97E160A8B002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FDE8F10-DB37-4108-8FDE-2C53372F80F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FDE8F10-DB37-4108-8FDE-2C53372F80F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FDE8F10-DB37-4108-8FDE-2C53372F80F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FDE8F10-DB37-4108-8FDE-2C53372F80F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19D83F36-AB13-4335-BF50-2D25DB988D4D}
+	EndGlobalSection
+EndGlobal
