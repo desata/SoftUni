@@ -15,13 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05.FashionBoutique", "05.Fa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06.SongsQueue", "06.SongsQueue\06.SongsQueue.csproj", "{0B75636B-7EFD-46E9-8285-3B4B7C7BF100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.TruckTour", "07.TruckTour\07.TruckTour.csproj", "{B7925588-0FF1-4EB0-8C84-A9EB79BB9AD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07.TruckTour", "07.TruckTour\07.TruckTour.csproj", "{B7925588-0FF1-4EB0-8C84-A9EB79BB9AD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.BalancedParenthesis", "08.BalancedParenthesis\08.BalancedParenthesis.csproj", "{F836AD0F-123D-4CEC-8413-089C4E13D8F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08.BalancedParenthesis", "08.BalancedParenthesis\08.BalancedParenthesis.csproj", "{F836AD0F-123D-4CEC-8413-089C4E13D8F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.SimpleTextEditor", "09.SimpleTextEditor\09.SimpleTextEditor.csproj", "{3DF9F3BB-41B3-457E-B5C3-5883A822EC03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09.SimpleTextEditor", "09.SimpleTextEditor\09.SimpleTextEditor.csproj", "{3DF9F3BB-41B3-457E-B5C3-5883A822EC03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.Crossroads", "10.Crossroads\10.Crossroads.csproj", "{5486607D-B091-4B58-BC1E-A08D049E7151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10.Crossroads", "10.Crossroads\10.Crossroads.csproj", "{5486607D-B091-4B58-BC1E-A08D049E7151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.KeyRevolver", "11.KeyRevolver\11.KeyRevolver.csproj", "{574A9C74-E634-454A-A4B9-9680A5875DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.CupsandBottles", "12.CupsandBottles\12.CupsandBottles.csproj", "{4A2CE0FF-2636-4E1E-AFDE-F59CE944F647}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{5486607D-B091-4B58-BC1E-A08D049E7151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5486607D-B091-4B58-BC1E-A08D049E7151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5486607D-B091-4B58-BC1E-A08D049E7151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574A9C74-E634-454A-A4B9-9680A5875DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574A9C74-E634-454A-A4B9-9680A5875DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574A9C74-E634-454A-A4B9-9680A5875DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574A9C74-E634-454A-A4B9-9680A5875DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2CE0FF-2636-4E1E-AFDE-F59CE944F647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2CE0FF-2636-4E1E-AFDE-F59CE944F647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2CE0FF-2636-4E1E-AFDE-F59CE944F647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2CE0FF-2636-4E1E-AFDE-F59CE944F647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
