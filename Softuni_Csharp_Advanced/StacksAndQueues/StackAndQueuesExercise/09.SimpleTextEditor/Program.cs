@@ -22,18 +22,25 @@ namespace _09.SimpleTextEditor
                 else if (command[0] == "2")
                 {
                     int count = int.Parse(command[1]);
-
-                    for (int j = 0; j < count; j++)
+                    string current = stack.Peek();
+                    while (count != 0)
                     {
                         stack.Pop();
+                        count--;
                     }
                 }
                 else if (command[0] == "3")
                 {
                     int index = int.Parse(command[1]);
-                    stack.Peek();
+                    string current = stack.Peek();
+                    Console.WriteLine(current[index-1]);
+                }
+                else if (command[0] == "4")
+                {
+                    continue;
                 }
             }
+
 
         }
     }
