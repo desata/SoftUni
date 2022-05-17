@@ -6,7 +6,7 @@ namespace _8.Bombs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //
         }
     }
 }
