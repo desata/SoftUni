@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Largest3Numbers", "03.La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ProductShop", "04.ProductShop\04.ProductShop.csproj", "{EFCEC37D-0C37-471F-BC1B-0FFFABA23205}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.CitiesByContinentandCountry", "05.CitiesByContinentandCountry\05.CitiesByContinentandCountry.csproj", "{F39DFE2B-E09A-404F-B404-C952EE416653}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EFCEC37D-0C37-471F-BC1B-0FFFABA23205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFCEC37D-0C37-471F-BC1B-0FFFABA23205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFCEC37D-0C37-471F-BC1B-0FFFABA23205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39DFE2B-E09A-404F-B404-C952EE416653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39DFE2B-E09A-404F-B404-C952EE416653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39DFE2B-E09A-404F-B404-C952EE416653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39DFE2B-E09A-404F-B404-C952EE416653}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
