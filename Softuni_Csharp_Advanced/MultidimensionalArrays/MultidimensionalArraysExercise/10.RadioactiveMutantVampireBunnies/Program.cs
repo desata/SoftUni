@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace _10.RadioactiveMutantVampireBunnies
@@ -8,70 +9,154 @@ namespace _10.RadioactiveMutantVampireBunnies
         static void Main(string[] args)
         {
             //
-            int rows = int.Parse(Console.ReadLine());
-            int cols = int.Parse(Console.ReadLine());
+            int[] matrixSize = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int rows = matrixSize[0];
+            int cols = matrixSize[1];
             char[,] matrix = new char[rows, cols];
-            string[] letters = Console.ReadLine().Split();
-            char[] command = letters.Select(char.Parse).ToArray();
             FillMatrix(matrix, rows, cols);
+            char[] input = Console.ReadLine().ToCharArray();
             int playerRow = 0;
             int playerCol = 0;
+            int nextRow = 0;
+            int nextCol = 0;
+            bool isDead = false;
+            bool hasWon = false;
 
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
                 for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    if (matrix[row,col] == 'P')
+                    if (matrix[row, col] == 'P')
                     {
                         playerRow = row;
                         playerCol = col;
                     }
                 }
             }
-            for (int i = 0; i < command.Length; i++)
+
+            for (int i = 0; i < input.Length; i++)
             {
                 //"R", "L", "U", "D"
-                // matrix[playerRow, playerCol] =
-                int nextRow = 0;
-                int nextCol = 0;
-                if (command[i] == 'R')
+
+                if (input[i] == 'R')
                 {
-                    nextRow = playerRow;
-                    nextCol = playerCol+1;
+                    nextRow = 0;
+                    nextCol = 1;
                 }
-                else if (command[i] == 'L')
+                else if (input[i] == 'L')
                 {
-                    nextRow = playerRow;
-                    nextCol = playerCol - 1;
+                    nextRow = 0;
+                    nextCol = -1;
                 }
-                else if (command[i] == 'U')
+                else if (input[i] == 'U')
                 {
-                    nextRow = playerRow - 1;
-                    nextCol = playerCol;
+                    nextRow = -1;
+                    nextCol = 0;
                 }
-                else if (command[i] == 'D')
+                else if (input[i] == 'D')
                 {
-                    nextRow = playerRow + 1;
-                    nextCol = playerCol;
+                    nextRow = 1;
+                    nextCol = 0;
                 }
 
-                if (matrix[nextRow, nextCol] == '.')
+                if (!IsInside(matrix, playerRow + nextRow, playerCol + nextCol))
                 {
-                    matrix[nextRow, nextCol] = matrix[playerRow, playerCol];
-
                     matrix[playerRow, playerCol] = '.';
+                    hasWon = true;
                 }
+
+                if (IsInside(matrix, playerRow + nextRow, playerCol + nextCol))
+                {
+                    if (matrix[playerRow + nextRow, playerCol + nextCol] == '.')
+                    {
+                        matrix[playerRow, playerCol] = matrix[playerRow + nextRow, playerCol + nextCol];
+                        playerRow = playerRow + nextRow;
+                        playerCol = playerCol + nextCol;
+                        matrix[playerRow, playerCol] = 'P';
+
+
+                    }
+                    else if (matrix[playerRow + nextRow, playerCol + nextCol] == 'B')
+                    {
+                        isDead = true;
+                    }
+
+                }
+                List<int[]> bunnies = new List<int[]>();
+
+                for (int row = 0; row < matrix.GetLength(0); row++)
+                {
+                    for (int col = 0; col < matrix.GetLength(1); col++)
+                    {
+                        if (matrix[row,col] == 'B')
+                        {
+                            bunnies.Add(new int[] { row, col });
+                        }
+                    }
+                }
+
+                foreach (var bun in bunnies)
+                {
+                    int bunnieRow = bun[0];
+                    int bunnieCol = bun[1];
+
+                    if (IsInside(matrix, bunnieRow - 1, bunnieCol))
+                    {
+                        if (matrix[bunnieRow - 1, bunnieCol] == 'P')
+                        {
+                            isDead = true;
+                        }
+                        matrix[bunnieRow - 1, bunnieCol] = 'B';
+
+                    }
+                    if (IsInside(matrix, bunnieRow + 1, bunnieCol))
+                    {
+                        if (matrix[bunnieRow + 1, bunnieCol] == 'P')
+                        {
+                            isDead = true;
+                        }
+                        matrix[bunnieRow + 1, bunnieCol] = 'B';
+
+                    }
+                    if (IsInside(matrix, bunnieRow, bunnieCol - 1))
+                    {
+                        if (matrix[bunnieRow, bunnieCol - 1] == 'P')
+                        {
+                            isDead = true;
+                        }
+                        matrix[bunnieRow, bunnieCol - 1] = 'B';
+
+                    }
+                    if (IsInside(matrix, bunnieRow, bunnieCol + 1))
+                    {
+                        if (matrix[bunnieRow, bunnieCol + 1] == 'P')
+                        {
+                            isDead = true;
+                        }
+                        matrix[bunnieRow, bunnieCol + 1] = 'B';
+
+                    }
+                }
+
             }
 
-
             Print(matrix);
+
+            if (isDead)
+            {
+                Console.WriteLine($"dead: {playerRow} {playerCol}");
+            }
+            else if (hasWon)
+            {
+                Console.WriteLine($"won: {playerRow} {playerCol}");
+            }
             //won or dead + row,col
 
             static void FillMatrix(char[,] matrix, int rows, int cols)
             {
                 for (int row = 0; row < matrix.GetLength(0); row++)
                 {
-                    char[] input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(char.Parse).ToArray();
+                    char[] input = Console.ReadLine().ToCharArray();
 
                     for (int col = 0; col < matrix.GetLength(1); col++)
                     {
@@ -92,7 +177,7 @@ namespace _10.RadioactiveMutantVampireBunnies
 
                     for (int col = 0; col < matrix.GetLength(1); col++)
                     {
-                        Console.Write(matrix[row, col] + " ");
+                        Console.Write(matrix[row, col]);
                     }
                     Console.WriteLine();
                 }
