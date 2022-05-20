@@ -14,7 +14,7 @@ namespace _10.RadioactiveMutantVampireBunnies
             int cols = matrixSize[1];
             char[,] matrix = new char[rows, cols];
             FillMatrix(matrix, rows, cols);
-            char[] input = Console.ReadLine().ToCharArray();
+            string input = Console.ReadLine();
             int playerRow = 0;
             int playerCol = 0;
             int nextRow = 0;
@@ -33,38 +33,43 @@ namespace _10.RadioactiveMutantVampireBunnies
                     }
                 }
             }
-
-            for (int i = 0; i < input.Length; i++)
+            foreach (var direction in input)
             {
-                //"R", "L", "U", "D"
+                switch (direction)
+                {
+                    //"R", "L", "U", "D"
 
-                if (input[i] == 'R')
-                {
-                    nextRow = 0;
-                    nextCol = 1;
+                    case 'R':
+                        nextRow = 0;
+                        nextCol = 1;
+                        break;
+
+                    case 'L':
+                        nextRow = 0;
+                        nextCol = -1;
+                        break;
+
+                    case 'U':
+                        nextRow = -1;
+                        nextCol = 0;
+                        break;
+
+                    case 'D':
+                        nextRow = 1;
+                        nextCol = 0;
+                        break;
+
+                    default:
+                        break;
                 }
-                else if (input[i] == 'L')
-                {
-                    nextRow = 0;
-                    nextCol = -1;
-                }
-                else if (input[i] == 'U')
-                {
-                    nextRow = -1;
-                    nextCol = 0;
-                }
-                else if (input[i] == 'D')
-                {
-                    nextRow = 1;
-                    nextCol = 0;
-                }
+
                 matrix[playerRow, playerCol] = '.';
 
                 if (!IsInside(matrix, playerRow + nextRow, playerCol + nextCol))
                 {
 
                     hasWon = true;
-                    break;
+
                 }
                 else
                 {
@@ -75,7 +80,6 @@ namespace _10.RadioactiveMutantVampireBunnies
                 if (matrix[playerRow, playerCol] == 'B')
                 {
                     isDead = true;
-                    break;
                 }
                 else if (!hasWon)
                 {
@@ -105,10 +109,11 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow - 1, bunnieCol] == 'P')
                         {
                             isDead = true;
-                            break;
                         }
-
-                        matrix[bunnieRow - 1, bunnieCol] = 'B';
+                        else
+                        {
+                            matrix[bunnieRow - 1, bunnieCol] = 'B';
+                        }
 
                     }
                     if (IsInside(matrix, bunnieRow + 1, bunnieCol))
@@ -116,9 +121,11 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow + 1, bunnieCol] == 'P')
                         {
                             isDead = true;
-                            break;
                         }
-                        matrix[bunnieRow + 1, bunnieCol] = 'B';
+                        else
+                        {
+                            matrix[bunnieRow + 1, bunnieCol] = 'B';
+                        }
 
                     }
                     if (IsInside(matrix, bunnieRow, bunnieCol - 1))
@@ -126,10 +133,11 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow, bunnieCol - 1] == 'P')
                         {
                             isDead = true;
-                            matrix[bunnieRow, bunnieCol - 1] = 'B';
-                            break;
                         }
-                        
+                        else
+                        {
+                            matrix[bunnieRow ,bunnieCol - 1] = 'B';
+                        }
 
                     }
                     if (IsInside(matrix, bunnieRow, bunnieCol + 1))
@@ -137,9 +145,11 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow, bunnieCol + 1] == 'P')
                         {
                             isDead = true;
-                            break;
                         }
-                        matrix[bunnieRow, bunnieCol + 1] = 'B';
+                        else
+                        {
+                            matrix[bunnieRow, bunnieCol + 1] = 'B';
+                        }
 
                     }
                 }
@@ -150,7 +160,7 @@ namespace _10.RadioactiveMutantVampireBunnies
             if (isDead)
             {
                 Console.WriteLine($"dead: {playerRow} {playerCol}");
-                
+
             }
             else if (hasWon)
             {
