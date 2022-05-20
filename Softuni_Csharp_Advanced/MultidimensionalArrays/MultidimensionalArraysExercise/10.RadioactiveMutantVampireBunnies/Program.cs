@@ -14,13 +14,9 @@ namespace _10.RadioactiveMutantVampireBunnies
             int cols = matrixSize[1];
             char[,] matrix = new char[rows, cols];
             FillMatrix(matrix, rows, cols);
-            string input = Console.ReadLine();
+
             int playerRow = 0;
             int playerCol = 0;
-            int nextRow = 0;
-            int nextCol = 0;
-            bool isDead = false;
-            bool hasWon = false;
 
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
@@ -33,44 +29,47 @@ namespace _10.RadioactiveMutantVampireBunnies
                     }
                 }
             }
+            string input = Console.ReadLine();
+
+            bool isDead = false;
+            bool hasWon = false;
+
             foreach (var direction in input)
             {
+                int nextRow = 0;
+                int nextCol = 0;
+
                 switch (direction)
                 {
                     //"R", "L", "U", "D"
 
                     case 'R':
-                        nextRow = 0;
                         nextCol = 1;
                         break;
 
                     case 'L':
-                        nextRow = 0;
+
                         nextCol = -1;
                         break;
 
                     case 'U':
                         nextRow = -1;
-                        nextCol = 0;
                         break;
 
                     case 'D':
                         nextRow = 1;
-                        nextCol = 0;
                         break;
 
-                    default:
-                        break;
                 }
 
                 matrix[playerRow, playerCol] = '.';
 
                 if (!IsInside(matrix, playerRow + nextRow, playerCol + nextCol))
                 {
-
+                    
                     hasWon = true;
-
                 }
+
                 else
                 {
                     playerRow += nextRow;
@@ -80,6 +79,7 @@ namespace _10.RadioactiveMutantVampireBunnies
                 if (matrix[playerRow, playerCol] == 'B')
                 {
                     isDead = true;
+
                 }
                 else if (!hasWon)
                 {
@@ -110,10 +110,7 @@ namespace _10.RadioactiveMutantVampireBunnies
                         {
                             isDead = true;
                         }
-                        else
-                        {
-                            matrix[bunnieRow - 1, bunnieCol] = 'B';
-                        }
+                        matrix[bunnieRow - 1, bunnieCol] = 'B';
 
                     }
                     if (IsInside(matrix, bunnieRow + 1, bunnieCol))
@@ -122,11 +119,7 @@ namespace _10.RadioactiveMutantVampireBunnies
                         {
                             isDead = true;
                         }
-                        else
-                        {
-                            matrix[bunnieRow + 1, bunnieCol] = 'B';
-                        }
-
+                        matrix[bunnieRow + 1, bunnieCol] = 'B';
                     }
                     if (IsInside(matrix, bunnieRow, bunnieCol - 1))
                     {
@@ -134,10 +127,7 @@ namespace _10.RadioactiveMutantVampireBunnies
                         {
                             isDead = true;
                         }
-                        else
-                        {
-                            matrix[bunnieRow ,bunnieCol - 1] = 'B';
-                        }
+                        matrix[bunnieRow, bunnieCol - 1] = 'B';
 
                     }
                     if (IsInside(matrix, bunnieRow, bunnieCol + 1))
@@ -145,60 +135,62 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow, bunnieCol + 1] == 'P')
                         {
                             isDead = true;
+                            
                         }
-                        else
-                        {
-                            matrix[bunnieRow, bunnieCol + 1] = 'B';
-                        }
+                        matrix[bunnieRow, bunnieCol + 1] = 'B';
 
                     }
+
+                }
+                if (isDead || hasWon)
+                {
+                    Print(matrix);
+                }
+
+                if (isDead)
+                {
+                    Console.WriteLine($"dead: {playerRow} {playerCol}");
+                    break;
+                }
+                else if (hasWon)
+                {
+                    Console.WriteLine($"won: {playerRow} {playerCol}");
+                    break;
                 }
             }
 
-            Print(matrix);
+        }
 
-            if (isDead)
+        static void FillMatrix(char[,] matrix, int rows, int cols)
+        {
+            for (int row = 0; row < matrix.GetLength(0); row++)
             {
-                Console.WriteLine($"dead: {playerRow} {playerCol}");
+                char[] input = Console.ReadLine().ToCharArray();
 
-            }
-            else if (hasWon)
-            {
-                Console.WriteLine($"won: {playerRow} {playerCol}");
-            }
-            //won or dead + row,col
-
-
-            static void FillMatrix(char[,] matrix, int rows, int cols)
-            {
-                for (int row = 0; row < matrix.GetLength(0); row++)
+                for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    char[] input = Console.ReadLine().ToCharArray();
-
-                    for (int col = 0; col < matrix.GetLength(1); col++)
-                    {
-                        matrix[row, col] = input[col];
-                    }
-                }
-            }
-
-            static bool IsInside(char[,] matrix, int row, int col)
-            {
-                return row >= 0 && row < matrix.GetLength(0) && col >= 0 && col < matrix.GetLength(1);
-            }
-
-            static void Print(char[,] matrix)
-            {
-                for (int row = 0; row < matrix.GetLength(0); row++)
-                {
-
-                    for (int col = 0; col < matrix.GetLength(1); col++)
-                    {
-                        Console.Write(matrix[row, col]);
-                    }
-                    Console.WriteLine();
+                    matrix[row, col] = input[col];
                 }
             }
         }
+
+        static bool IsInside(char[,] matrix, int row, int col)
+        {
+            return row >= 0 && row < matrix.GetLength(0) && col >= 0 && col < matrix.GetLength(1);
+        }
+
+        static void Print(char[,] matrix)
+        {
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    Console.Write(matrix[row, col]);
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
 }
