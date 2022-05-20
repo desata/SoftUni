@@ -18,7 +18,11 @@ namespace _9.Miner
             string[] command = Console.ReadLine().Split();
 
             FillMatrix(matrix, matrixSize);
-
+            //The commands will be: left, right, up, and down
+            //* – a regular position on the field.
+            //e – the end of the route.
+            //c - coal
+            //s - the place where the miner starts
 
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
@@ -70,7 +74,6 @@ namespace _9.Miner
                         continue;
                     }
                 }
-
                 if (command[i] == "right")
                 {
                     if (IsInside(matrix, rowIndex, colIndex + 1))
@@ -103,7 +106,6 @@ namespace _9.Miner
                         continue;
                     }
                 }
-
                 if (command[i] == "up")
                 {
                     if (IsInside(matrix, rowIndex - 1, colIndex))
@@ -136,7 +138,6 @@ namespace _9.Miner
                         continue;
                     }
                 }
-
                 if (command[i] == "down")
                 {
                     if (IsInside(matrix, rowIndex + 1, colIndex))
