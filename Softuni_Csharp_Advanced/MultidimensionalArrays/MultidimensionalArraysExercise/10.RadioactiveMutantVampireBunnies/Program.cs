@@ -58,37 +58,37 @@ namespace _10.RadioactiveMutantVampireBunnies
                     nextRow = 1;
                     nextCol = 0;
                 }
+                matrix[playerRow, playerCol] = '.';
 
                 if (!IsInside(matrix, playerRow + nextRow, playerCol + nextCol))
                 {
-                    matrix[playerRow, playerCol] = '.';
+
                     hasWon = true;
+                    break;
                 }
-
-                if (IsInside(matrix, playerRow + nextRow, playerCol + nextCol))
+                else
                 {
-                    if (matrix[playerRow + nextRow, playerCol + nextCol] == '.')
-                    {
-                        matrix[playerRow, playerCol] = matrix[playerRow + nextRow, playerCol + nextCol];
-                        playerRow = playerRow + nextRow;
-                        playerCol = playerCol + nextCol;
-                        matrix[playerRow, playerCol] = 'P';
-
-
-                    }
-                    else if (matrix[playerRow + nextRow, playerCol + nextCol] == 'B')
-                    {
-                        isDead = true;
-                    }
-
+                    playerRow += nextRow;
+                    playerCol += nextCol;
                 }
+
+                if (matrix[playerRow, playerCol] == 'B')
+                {
+                    isDead = true;
+                    break;
+                }
+                else if (!hasWon)
+                {
+                    matrix[playerRow, playerCol] = 'P';
+                }
+
                 List<int[]> bunnies = new List<int[]>();
 
                 for (int row = 0; row < matrix.GetLength(0); row++)
                 {
                     for (int col = 0; col < matrix.GetLength(1); col++)
                     {
-                        if (matrix[row,col] == 'B')
+                        if (matrix[row, col] == 'B')
                         {
                             bunnies.Add(new int[] { row, col });
                         }
@@ -105,7 +105,9 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow - 1, bunnieCol] == 'P')
                         {
                             isDead = true;
+                            break;
                         }
+
                         matrix[bunnieRow - 1, bunnieCol] = 'B';
 
                     }
@@ -114,6 +116,7 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow + 1, bunnieCol] == 'P')
                         {
                             isDead = true;
+                            break;
                         }
                         matrix[bunnieRow + 1, bunnieCol] = 'B';
 
@@ -123,8 +126,10 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow, bunnieCol - 1] == 'P')
                         {
                             isDead = true;
+                            matrix[bunnieRow, bunnieCol - 1] = 'B';
+                            break;
                         }
-                        matrix[bunnieRow, bunnieCol - 1] = 'B';
+                        
 
                     }
                     if (IsInside(matrix, bunnieRow, bunnieCol + 1))
@@ -132,12 +137,12 @@ namespace _10.RadioactiveMutantVampireBunnies
                         if (matrix[bunnieRow, bunnieCol + 1] == 'P')
                         {
                             isDead = true;
+                            break;
                         }
                         matrix[bunnieRow, bunnieCol + 1] = 'B';
 
                     }
                 }
-
             }
 
             Print(matrix);
@@ -145,12 +150,14 @@ namespace _10.RadioactiveMutantVampireBunnies
             if (isDead)
             {
                 Console.WriteLine($"dead: {playerRow} {playerCol}");
+                
             }
             else if (hasWon)
             {
                 Console.WriteLine($"won: {playerRow} {playerCol}");
             }
             //won or dead + row,col
+
 
             static void FillMatrix(char[,] matrix, int rows, int cols)
             {
