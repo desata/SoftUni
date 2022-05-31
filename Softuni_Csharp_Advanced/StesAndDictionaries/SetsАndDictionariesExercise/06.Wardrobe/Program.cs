@@ -22,8 +22,8 @@ namespace _06.Wardrobe
                     wardrobe.Add(color, new Dictionary<string, int>());
 
                 }
-                Dictionary<string, int> clothes = wardrobe[color];
 
+                Dictionary<string, int> clothes = wardrobe[color];
                 foreach (var item in cloth)
                 {
                     if (!clothes.ContainsKey(item))
@@ -31,7 +31,6 @@ namespace _06.Wardrobe
                         clothes.Add(item, 0);
                     }
                     clothes[item]++;
-
                 }
             }
 
