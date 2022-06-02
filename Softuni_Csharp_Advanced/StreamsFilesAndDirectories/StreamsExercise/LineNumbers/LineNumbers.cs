@@ -30,23 +30,13 @@
 
                     while (line != null)
                     {
-
                         int counterpunct = 0;
                         int countChar = 0;
 
-
                         foreach (char symbol in line)
                         {
-                            if (symbols.Contains(symbol))
-                            {
-                                counterpunct++;
-                            }
-                                                        
-                            if (Char.IsLetter(symbol))
-                            {
-                                countChar++;
-                            }
-
+                            counterpunct = line.Count(Char.IsPunctuation);
+                            countChar = line.Count(Char.IsLetter);
                         }
                         writer.WriteLine($"Line {index}: {line} ({countChar}) ({counterpunct})");
                         index++;
