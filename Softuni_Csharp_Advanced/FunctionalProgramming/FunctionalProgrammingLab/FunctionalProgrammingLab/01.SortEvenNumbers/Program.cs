@@ -12,10 +12,7 @@ namespace _01.SortEvenNumbers
             //Hint: It is up to you what type of data structures you will use to solve this problem. Use a functional programming filter and sort the collection of numbers.
 
 
-            List<int> numbers = Console.ReadLine().Split(", ").Select(int.Parse).ToList();
-            
-            numbers = numbers.Where(x => x % 2 == 0).OrderBy(x => x).ToList();
-
+            List<int> numbers = Console.ReadLine().Split(", ").Select(n => int.Parse(n)).Where(x => x % 2 == 0).OrderBy(x => x).ToList();
 
             Console.WriteLine(String.Join(", ", numbers));
 
