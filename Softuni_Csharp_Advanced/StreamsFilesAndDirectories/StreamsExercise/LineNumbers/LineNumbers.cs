@@ -18,7 +18,7 @@
         {
             StreamReader reader = new StreamReader(inputFilePath);
             StreamWriter writer = new StreamWriter(outputFilePath);
-            char[] symbols = { '-', ',', '.', '!', '?', '\'' };
+           // char[] symbols = { '-', ',', '.', '!', '?', '\'' };
 
             using (reader)
             {
