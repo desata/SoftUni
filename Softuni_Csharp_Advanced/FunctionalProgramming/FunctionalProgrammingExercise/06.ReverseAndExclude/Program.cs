@@ -8,7 +8,7 @@ namespace _06.ReverseAndExclude
     {
         static void Main(string[] args)
         {
-            //Create a program that reverses a collection and removes elements that are divisible by a given integer n. Use predicates/functions.
+           //Create a program that reverses a collection and removes elements that are divisible by a given integer n. Use predicates/functions.
 
             List<int> numbers = Console.ReadLine().Split().Select(int.Parse).Reverse().ToList();
             int divider = int.Parse(Console.ReadLine());
@@ -17,6 +17,7 @@ namespace _06.ReverseAndExclude
 
             List<int> result = numbers.Where(x => isDivideble(x)).ToList();
             printNum(result);
+
         }
     }
 }
