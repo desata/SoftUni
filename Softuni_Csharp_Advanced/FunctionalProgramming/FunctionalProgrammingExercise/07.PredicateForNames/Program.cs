@@ -14,6 +14,7 @@ namespace _07.PredicateForNames
             
             Predicate<string> lengthFilter = x => x.Length <= n;
             Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList().FindAll(lengthFilter).ForEach(Console.WriteLine);
+
         }
     }
 }
