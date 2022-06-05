@@ -13,7 +13,6 @@ namespace _04.FindEvensOrOdds
 
             Predicate<int> isEven = x => x % 2 == 0;
             Predicate<int> isOdd = x => x % 2 != 0;
-           // List<int> result;
             int[] intInput = Console.ReadLine().Split().Select(int.Parse).ToArray();
             List<int> numbers = new List<int>();
             int firstNum = intInput[0];
