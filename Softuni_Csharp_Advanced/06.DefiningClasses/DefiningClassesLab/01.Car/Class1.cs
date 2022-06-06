@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _01.Car
+namespace CarManufacturer
 {
-    internal class Class1
+    class Car
     {
+
+
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Year { get; set; }
+
     }
 }
