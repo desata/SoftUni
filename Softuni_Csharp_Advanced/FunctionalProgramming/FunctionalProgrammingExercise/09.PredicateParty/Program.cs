@@ -52,7 +52,7 @@ namespace _09.PredicateParty
                         if (!doubledNames.Any())
                         {
                             command = Console.ReadLine();
-                            //continue;
+                            continue;
                         }
                         else
                         {
@@ -67,7 +67,8 @@ namespace _09.PredicateParty
                         if (!doubledNames.Any())
                         {
 
-                            command = Console.ReadLine(); 
+                            command = Console.ReadLine();
+                            continue;
                         }
                         else
                         {
@@ -80,7 +81,8 @@ namespace _09.PredicateParty
                         doubledNames = names.FindAll(lengthFilter);
                         if (!doubledNames.Any())
                         {
-                            command = Console.ReadLine(); 
+                            command = Console.ReadLine();
+                            continue;
                         }
                         else
                         {
