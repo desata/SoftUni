@@ -58,7 +58,7 @@ namespace CarManufacturer
 
         public string WhoAmI()
         {
-            return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuelQuantity: {this.FuelQuantity:F2}";
+            return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nHorsePower: {Engine.HorsePower}\nFuelQuantity: {this.FuelQuantity:F2}";
         }
 
     }
