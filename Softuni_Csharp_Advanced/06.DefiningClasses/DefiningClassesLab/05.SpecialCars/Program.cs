@@ -6,21 +6,38 @@ namespace CarManufacturer
     {
         public static void Main(string[] args)
         {
-            //Car car = new Car();
+            Tire[] tires = new Tire[]
+            {
+                new Tire(1995,1.6),
+                new Tire(1995,1.6),
+                new Tire(1995,1.9),
+                new Tire(1995,1.9),
+            };
 
-            Tire[] tire = new Tire[]
-                {
-                new Tire(1, 2.5),
-                new Tire(1, 2.1),
-                new Tire(2, 0.5),
-                new Tire(2, 2.3),
-                };
+            Engine engine = new Engine(555, 3);
 
-            Engine engine = new Engine(560, 6300);
+            Car defaultCar = new Car("BMW", "X3", 2006, 100000, 5000, engine, tires);
 
-            Car car = new Car("Lamborgini", "Urus", 2020, 250, 9, engine, tire);
+            for (int i = 0; i < defaultCar.Tires.Length; i++)
+            {
+                Console.WriteLine($"{defaultCar.Tires[i].Year} -> {defaultCar.Tires[i].Pressure}");
+            }
 
-            Console.WriteLine(car.WhoAmI());
+            Console.WriteLine(defaultCar.WhoAmI());
+            return;
+            Car car = new Car();
+            car.Model = "A5";
+            car.Make = "Audi";
+            car.Year = 1995;
+            car.FuelQuantity = 100;
+            car.FuelConsumption = 2;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Driving 30: ");
+                car.Drive(30);
+                Console.WriteLine(car.WhoAmI());
+            }
         }
     }
 }

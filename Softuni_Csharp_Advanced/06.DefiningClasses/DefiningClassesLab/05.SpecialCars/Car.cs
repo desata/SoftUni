@@ -6,6 +6,12 @@ namespace CarManufacturer
 {
     public class Car
     {
+        string make;
+        string model;
+        int year;
+        double fuelQuantity;
+        double fuelConsumption;
+
         public Car()
         {
             Make = "VW";
@@ -15,25 +21,29 @@ namespace CarManufacturer
             FuelConsumption = 10;
         }
 
-        public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption, Engine engine, Tire[] tires) : this(make, model, year, fuelQuantity, fuelConsumption)
-        {
-            this.Engine = engine;
-            this.Tires = tires;
-
-        }
-        public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption) : this(make, model, year)
-        {
-            this.FuelQuantity = fuelQuantity;
-            this.FuelConsumption = fuelConsumption;
-        }
         public Car(string make, string model, int year) : this()
         {
-            this.Make = make;
-            this.Model = model;
-            this.Year = year;
+            Make = make;
+            Model = model;
+            Year = year;
         }
 
-       
+        public Car(string make, string model, int year, int fuelQuantity, int fuelConsumption)
+            : this(make, model, year)
+        {
+            FuelConsumption = fuelConsumption;
+            FuelQuantity = fuelQuantity;
+        }
+
+
+        public Car(string make, string model, int year, int fuelQuantity, int fuelConsumption, Engine engine, Tire[] tires)
+    : this(make, model, year, fuelQuantity, fuelConsumption)
+        {
+            Engine = engine;
+            Tires = tires;
+        }
+
+
         public string Make { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }
@@ -58,7 +68,7 @@ namespace CarManufacturer
 
         public string WhoAmI()
         {
-            return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nHorsePower: {Engine.HorsePower}\nFuelQuantity: {this.FuelQuantity:F2}";
+            return $"Make: {this.Make} Model: { this.Model} Year: { this.Year} Fuel: { this.FuelQuantity:F2}";
         }
 
     }
