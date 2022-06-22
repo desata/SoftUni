@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.ListyIterator", "01.List
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.Collection", "02.Collection\02.Collection.csproj", "{1A1936C1-106F-453F-9661-8A6336A37C3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.CustomComparator", "07.CustomComparator\07.CustomComparator.csproj", "{F2C796A3-2A51-4517-B8E4-ECD11825B707}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1A1936C1-106F-453F-9661-8A6336A37C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A1936C1-106F-453F-9661-8A6336A37C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A1936C1-106F-453F-9661-8A6336A37C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C796A3-2A51-4517-B8E4-ECD11825B707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C796A3-2A51-4517-B8E4-ECD11825B707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C796A3-2A51-4517-B8E4-ECD11825B707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C796A3-2A51-4517-B8E4-ECD11825B707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
