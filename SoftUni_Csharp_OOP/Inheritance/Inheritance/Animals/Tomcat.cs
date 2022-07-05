@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Animals
 {
-    public class Cat : Animal
+    public class Tomcat : Cat
     {
-        public Cat(string name, int age, string gender) : base(name, age, gender)
+        public Tomcat(string name, int age) : base(name, age, "Male")
         {
         }
 
         public override string ProduceSound()
         {
-            return "Meow meow";
+          return "MEOW";
         }
     }
 }
