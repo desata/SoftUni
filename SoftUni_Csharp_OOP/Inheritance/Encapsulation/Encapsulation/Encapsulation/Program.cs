@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _06._Repainting
+namespace Encapsulation
 {
     internal class Program
     {

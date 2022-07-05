@@ -22,8 +22,6 @@ namespace _05._Supplies_for_School
             int boardCleanningLiquid = int.Parse(Console.ReadLine());
             double discount = int.Parse(Console.ReadLine());
             double totalSum = (penPackage * 5.8) + (textMarkerPackage * 7.2) + (boardCleanningLiquid * 1.2);
-            Console.WriteLine(totalSum);
-            Console.WriteLine(discount);
             totalSum -= totalSum * (discount/100);
             //Да се отпечата на конзолата колко пари ще са нужни, за да си плати сметката.
 
