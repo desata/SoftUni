@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Deposit Calculator", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Vacation Books List", "04. Vacation Books List\04. Vacation Books List.csproj", "{FECD7CCF-8FDD-4F9A-8F69-F9798A4DD5EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Supplies for School", "05. Supplies for School\05. Supplies for School.csproj", "{BCB30004-F06C-4E10-8E63-2726FD0156D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FECD7CCF-8FDD-4F9A-8F69-F9798A4DD5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FECD7CCF-8FDD-4F9A-8F69-F9798A4DD5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FECD7CCF-8FDD-4F9A-8F69-F9798A4DD5EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB30004-F06C-4E10-8E63-2726FD0156D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB30004-F06C-4E10-8E63-2726FD0156D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB30004-F06C-4E10-8E63-2726FD0156D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB30004-F06C-4E10-8E63-2726FD0156D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
