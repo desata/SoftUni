@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _01._Class_Box_Data
+namespace ClassBox
 {
     public class StartUp
     {
@@ -27,8 +27,6 @@ namespace _01._Class_Box_Data
             Console.WriteLine($"Surface Area - {box.SurfaceArea():f2}");
             Console.WriteLine($"Lateral Surface Area - {box.LateralSurfaceArea():f2}");
             Console.WriteLine($"Volume - {box.Volume():f2}");
-
-
 
         }
     }

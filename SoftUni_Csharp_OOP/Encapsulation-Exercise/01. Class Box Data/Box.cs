@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _01._Class_Box_Data
+namespace ClassBox
 {
     public class Box
     {
@@ -61,19 +61,19 @@ namespace _01._Class_Box_Data
         public double SurfaceArea()
         {
             //Calculate and return the surface area of the Box.
-            double surfaceArea = 2 * (length * width) + 2 * (width * height) + 2 * (height + length); ;
+            double surfaceArea = 2 * (this.length * this.width) + 2 * (this.width * this.height) + 2 * (this.height * this.length); ;
             return surfaceArea;
                 
         }
         public double LateralSurfaceArea()
         {
             //Calculate and return the lateral surface area of the Box.
-            double lateralSurfaceArea = 2 * (width * height) + 2 * (height + length);
+            double lateralSurfaceArea = 2 * (this.width * this.height) + 2 * (this.height * this.length);
             return lateralSurfaceArea;
         }
         public double Volume()
         {
-            double volume = length * width * height;
+            double volume = this.length * this.width * this.height;
             return volume;
             //Calculate and return the volume of the Box.
         }
