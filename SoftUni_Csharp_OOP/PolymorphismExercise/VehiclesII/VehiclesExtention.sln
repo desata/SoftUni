@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiclesExtention", "VehiclesExtention.csproj", "{8EC3D49D-273B-4BCE-88CB-045BFECF0454}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Raiding", "..\03.Raiding\03.Raiding.csproj", "{08C20EEE-2238-4108-9010-BCD50CD990A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Raidingv0.1", "..\03.Raidingv0.1\03.Raidingv0.1.csproj", "{51E4F270-79D1-4329-9E9B-D270B3BF9048}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8EC3D49D-273B-4BCE-88CB-045BFECF0454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EC3D49D-273B-4BCE-88CB-045BFECF0454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EC3D49D-273B-4BCE-88CB-045BFECF0454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08C20EEE-2238-4108-9010-BCD50CD990A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C20EEE-2238-4108-9010-BCD50CD990A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C20EEE-2238-4108-9010-BCD50CD990A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C20EEE-2238-4108-9010-BCD50CD990A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E4F270-79D1-4329-9E9B-D270B3BF9048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E4F270-79D1-4329-9E9B-D270B3BF9048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E4F270-79D1-4329-9E9B-D270B3BF9048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E4F270-79D1-4329-9E9B-D270B3BF9048}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
