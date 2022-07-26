@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Reverse a String", "1. Reverse a String\1. Reverse a String.csproj", "{3490A4DD-C20F-4B1B-8D7A-23220900BDE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Stack Sum", "2. Stack Sum\2. Stack Sum.csproj", "{D3F694F5-1EF1-4340-A82F-9C25735A3811}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3490A4DD-C20F-4B1B-8D7A-23220900BDE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3490A4DD-C20F-4B1B-8D7A-23220900BDE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3490A4DD-C20F-4B1B-8D7A-23220900BDE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3490A4DD-C20F-4B1B-8D7A-23220900BDE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F694F5-1EF1-4340-A82F-9C25735A3811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F694F5-1EF1-4340-A82F-9C25735A3811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F694F5-1EF1-4340-A82F-9C25735A3811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F694F5-1EF1-4340-A82F-9C25735A3811}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5E69A25-6778-4FF0-80FD-219AC65DE55B}
+	EndGlobalSection
+EndGlobal

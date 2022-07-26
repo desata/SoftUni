@@ -10,32 +10,32 @@ namespace _01.SquareRoot
             try
             {
                 double squareRoot = CalcSquareRoot(); // Calculate square root, exceptions can be thrown
-                Console.WriteLine("Square root is: {0}", squareRoot);
+                Console.WriteLine(squareRoot);
             }
             // List of possible exceptions
             catch (ArgumentNullException) // If input is "null" - try with "Ctrl + Z"
             {
-                Console.WriteLine("Invalid number");
+                Console.WriteLine("Invalid number.");
             }
             catch (ArgumentException)
             {
-                Console.WriteLine("Invalid number");
+                Console.WriteLine("Invalid number.");
             }
             catch (FormatException) // If input is different format, like "double" or "float"
             {
-                Console.WriteLine("Invalid number");
+                Console.WriteLine("Invalid number.");
             }
             catch (OverflowException) // If input is negative number
             {
-                Console.WriteLine("Invalid number");
+                Console.WriteLine("Invalid number.");
             }
             catch (Exception)// If any of the above listed "exceptions" can't handle, this takes care
             {
-                Console.WriteLine("Invalid number");
+                Console.WriteLine("Invalid number.");
             }
             finally // No matter what, this is executed
             {
-                Console.WriteLine("Good bye");
+                Console.WriteLine("Goodbye.");
             }
         }
 
@@ -47,7 +47,7 @@ namespace _01.SquareRoot
             double squareRoot;
             uint inputNumber;
 
-            Console.Write("Enter integer: ");
+           
             inputNumber = uint.Parse(Console.ReadLine()); // This operation can throw exceptions
 
             squareRoot = Math.Sqrt(inputNumber);
@@ -57,4 +57,4 @@ namespace _01.SquareRoot
 
     }
 }
-}
+
