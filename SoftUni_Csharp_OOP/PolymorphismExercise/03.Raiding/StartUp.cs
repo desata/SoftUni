@@ -7,6 +7,7 @@ namespace _03.Raiding
     {
         static void Main(string[] args)
         {
+            List<IHero> heroes = new List<IHero>();
             int heroesPower = 0;
             int totalHerosPower = 0;
             int n = int.Parse(Console.ReadLine());
@@ -15,48 +16,49 @@ namespace _03.Raiding
             {
                 string name = Console.ReadLine();
                 string type = Console.ReadLine();
-                List<string> types = new List<string> { "Druid", "Paladin", "Rogue", "Warrior"};
+                // List<string> types = new List<string> { "Druid", "Paladin", "Rogue", "Warrior"};
 
+                IHero currentHero = null;
 
-                if (types.Contains(type))  
+                if (type == "Druid")
                 {
-                    if (type == "Druid")
-                    {
-                        Druid druid = new Druid(name, type);
-                        heroesPower = 80;
-                        druid.CastAbility();
-                    }
-                    else if (type == "Paladin")
-                    {
-                        Paladin paladin = new Paladin(name, type);
-                        heroesPower = 100;
-                        paladin.CastAbility();
-                    }
-                    else if (type == "Rogue")
-                    {
-                        Rogue rogue = new Rogue(name, type);
-                        heroesPower = 80;
-                        rogue.CastAbility();
-                    }
-                    else
-                    {
-                        Warrior warrior = new Warrior(name, type);
-                        heroesPower = 100;
-                        warrior.CastAbility();
-                    }
-                    totalHerosPower += heroesPower;
+                    currentHero = new Druid(name, type);
+                    heroesPower = 80;
+                    
                 }
-               
+                else if (type == "Paladin")
+                {
+                    currentHero = new Paladin(name, type);
+                    heroesPower = 100;
+
+                }
+                else if (type == "Rogue")
+                {
+                    currentHero = new Rogue(name, type);
+                    heroesPower = 80;
+
+                }
+                else if (type == "Warrior")
+                {
+                    currentHero = new Warrior(name, type);
+                    heroesPower = 100;
+
+                }
                 else
                 {
                     Console.WriteLine("Invalid hero!");
                     i--;
+                    continue;
 
                 }
+
+                totalHerosPower += heroesPower;
+                currentHero.CastAbility();
+                heroes.Add(currentHero);
             }
             int bossPower = int.Parse(Console.ReadLine());
 
-           
+
             if (bossPower > totalHerosPower)
             {
                 Console.WriteLine("Defeat...");
