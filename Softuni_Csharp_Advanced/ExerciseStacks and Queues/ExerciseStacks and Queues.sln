@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Basic Queue Operations"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Maximum and Minimum Element", "03. Maximum and Minimum Element\03. Maximum and Minimum Element.csproj", "{BF1CCD42-EE50-4D9E-A66E-70D2C494DEB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Fast Food", "04. Fast Food\04. Fast Food.csproj", "{6C67C281-B7C2-4FC7-A0EA-0850F0836146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Fashion Boutique", "05. Fashion Boutique\05. Fashion Boutique.csproj", "{5078DACA-F351-4534-A06F-623AA07A81CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BF1CCD42-EE50-4D9E-A66E-70D2C494DEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF1CCD42-EE50-4D9E-A66E-70D2C494DEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF1CCD42-EE50-4D9E-A66E-70D2C494DEB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C67C281-B7C2-4FC7-A0EA-0850F0836146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C67C281-B7C2-4FC7-A0EA-0850F0836146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C67C281-B7C2-4FC7-A0EA-0850F0836146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C67C281-B7C2-4FC7-A0EA-0850F0836146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5078DACA-F351-4534-A06F-623AA07A81CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5078DACA-F351-4534-A06F-623AA07A81CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5078DACA-F351-4534-A06F-623AA07A81CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5078DACA-F351-4534-A06F-623AA07A81CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
