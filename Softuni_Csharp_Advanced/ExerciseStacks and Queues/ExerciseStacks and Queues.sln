@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Fast Food", "04. Fast F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Fashion Boutique", "05. Fashion Boutique\05. Fashion Boutique.csproj", "{5078DACA-F351-4534-A06F-623AA07A81CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Songs Queue", "06. Songs Queue\06. Songs Queue.csproj", "{4E691A25-AF5A-4D64-9103-E4D2CE2410DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5078DACA-F351-4534-A06F-623AA07A81CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5078DACA-F351-4534-A06F-623AA07A81CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5078DACA-F351-4534-A06F-623AA07A81CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E691A25-AF5A-4D64-9103-E4D2CE2410DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E691A25-AF5A-4D64-9103-E4D2CE2410DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E691A25-AF5A-4D64-9103-E4D2CE2410DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E691A25-AF5A-4D64-9103-E4D2CE2410DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
