@@ -90,9 +90,9 @@ namespace _01._Tiles_Master
                 Console.WriteLine(String.Join(", ", grayTiles));
             }
 
-            kitchen.OrderByDescending(k => k.Value);
+           
 
-            foreach (var location in kitchen)
+            foreach (var location in kitchen.OrderByDescending(k => k.Value))
             {
                 if (location.Value > 0)
                 {
