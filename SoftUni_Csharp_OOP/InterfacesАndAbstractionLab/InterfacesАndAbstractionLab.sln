@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", "{4D475778-F683-4463-87AF-D5704E4506B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.Shapes", "1.Shapes\1.Shapes.csproj", "{9FD82F32-F531-4408-8525-2382E8A61C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.Cars", "2.Cars\2.Cars.csproj", "{4CF451EB-A0DB-4EE4-930E-94A005E7143C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D475778-F683-4463-87AF-D5704E4506B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D475778-F683-4463-87AF-D5704E4506B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D475778-F683-4463-87AF-D5704E4506B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D475778-F683-4463-87AF-D5704E4506B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD82F32-F531-4408-8525-2382E8A61C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD82F32-F531-4408-8525-2382E8A61C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD82F32-F531-4408-8525-2382E8A61C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD82F32-F531-4408-8525-2382E8A61C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF451EB-A0DB-4EE4-930E-94A005E7143C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF451EB-A0DB-4EE4-930E-94A005E7143C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF451EB-A0DB-4EE4-930E-94A005E7143C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF451EB-A0DB-4EE4-930E-94A005E7143C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE8F9ACB-48C3-4F55-9743-5343E88FEEFB}
+	EndGlobalSection
+EndGlobal
