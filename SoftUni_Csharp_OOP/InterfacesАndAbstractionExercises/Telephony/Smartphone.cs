@@ -7,23 +7,17 @@ namespace Telephony
 {
     public class Smartphone : ICallable, IBrowseable
     {
-        public Smartphone(string number, string website)
-        {
-            Number = number;
-            Website = website;
-        }
 
         public string Number { get; set; }
         public string Website { get; set; }
-
-        public void Browse()
+        public void Browse(string website)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Browsing: {website}!");
         }
 
-        public void Call()
+        public void Call(string number)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Calling... {number}");
         }
     }
 }

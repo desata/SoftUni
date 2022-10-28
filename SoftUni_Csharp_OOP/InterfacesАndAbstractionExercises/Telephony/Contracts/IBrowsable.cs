@@ -6,7 +6,6 @@ namespace Telephony.Contracts
 {
     public interface IBrowseable
     {
-        public string Website { get; set; }
-        void Browse();
+        void Browse(string website);
     }
 }

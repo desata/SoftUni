@@ -6,7 +6,6 @@ namespace Telephony.Contracts
 {
     public interface ICallable
     {
-        public string Number { get; set; }
-        void Call();
+        void Call(string number);
     }
 }

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telephony", "Telephony\Tele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorderControl", "BorderControl\BorderControl.csproj", "{E451BED3-888D-449C-9275-A589222EF043}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayCelebrations", "BirthdayCelebrations\BirthdayCelebrations.csproj", "{B522A514-D562-4E20-873D-2E00D67DD761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodShortage", "FoodShortage\FoodShortage.csproj", "{E465CB68-32EA-49A0-8288-4CA1BF18C528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{E451BED3-888D-449C-9275-A589222EF043}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E451BED3-888D-449C-9275-A589222EF043}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E451BED3-888D-449C-9275-A589222EF043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B522A514-D562-4E20-873D-2E00D67DD761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B522A514-D562-4E20-873D-2E00D67DD761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B522A514-D562-4E20-873D-2E00D67DD761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B522A514-D562-4E20-873D-2E00D67DD761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E465CB68-32EA-49A0-8288-4CA1BF18C528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E465CB68-32EA-49A0-8288-4CA1BF18C528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E465CB68-32EA-49A0-8288-4CA1BF18C528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E465CB68-32EA-49A0-8288-4CA1BF18C528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,21 +14,36 @@ namespace Telephony
             numbers = Console.ReadLine().Split().ToList();
             urls = Console.ReadLine().Split().ToList();
 
-            try
-            {
-                foreach (var num in numbers)
-                {
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception;
-            }
-
+            Phone phone = new Phone();
             Smartphone smartphone = new Smartphone();
 
+            foreach (string number in numbers)
+            {
+                if (!number.All(c => Char.IsDigit(c)))
+                {
+                    Console.WriteLine("Invalid number!");
+                }
+                else if (number.Length == 7)
+                {
+                    phone.Call(number);
+                }
+                else
+                {
+                    smartphone.Call(number);
+                }
+            }
+            foreach (var url in urls)
+            {
+                if (url.Any(c => Char.IsDigit(c)))
+                {
+                    Console.WriteLine("Invalid URL!");
+                }
+                else
+                {
+                    smartphone.Browse(url);
+                }
+                
+            }
         }
     }
 }
