@@ -6,7 +6,7 @@ namespace Vehicles
 {
     public class Truck : Vehicle
     {
-        public Truck(double fuel, double consumption) : base(fuel, consumption)
+        public Truck(double fuel, double consumption, double tankCapacity) : base(fuel, consumption, tankCapacity)
         {
         }
 

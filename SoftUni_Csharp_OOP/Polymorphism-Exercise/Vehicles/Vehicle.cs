@@ -6,14 +6,16 @@ namespace Vehicles
 {
     public abstract class Vehicle
     {
-        protected Vehicle(double fuel, double consumption)
+        protected Vehicle(double fuel, double consumption, double tankCapacity)
         {
             Fuel = fuel;
             Consumption = consumption;
+            TankCapacity = tankCapacity;    
         }
 
         public double Fuel { get; set; }
         public virtual double Consumption { get; set; }
+        public double TankCapacity { get; set; }
 
         public bool CanBeDriven(double distance)
         {
