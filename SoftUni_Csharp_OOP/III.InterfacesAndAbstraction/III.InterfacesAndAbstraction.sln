@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.BorderControl", "04.Borde
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.BirthdayCelebrations", "5.BirthdayCelebrations\5.BirthdayCelebrations.csproj", "{99A8AB7C-B4F2-4E53-B4B3-7D14285354D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.FoodShortage", "6.FoodShortage\6.FoodShortage.csproj", "{30CD8224-3C1D-436B-A7DA-2214176DD247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.MilitaryElite", "7.MilitaryElite\7.MilitaryElite.csproj", "{1D6F4A05-6213-42DC-B7F2-272A9C206FD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{99A8AB7C-B4F2-4E53-B4B3-7D14285354D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99A8AB7C-B4F2-4E53-B4B3-7D14285354D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99A8AB7C-B4F2-4E53-B4B3-7D14285354D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30CD8224-3C1D-436B-A7DA-2214176DD247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30CD8224-3C1D-436B-A7DA-2214176DD247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30CD8224-3C1D-436B-A7DA-2214176DD247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30CD8224-3C1D-436B-A7DA-2214176DD247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D6F4A05-6213-42DC-B7F2-272A9C206FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D6F4A05-6213-42DC-B7F2-272A9C206FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D6F4A05-6213-42DC-B7F2-272A9C206FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D6F4A05-6213-42DC-B7F2-272A9C206FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
