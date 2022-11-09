@@ -5,11 +5,23 @@ using MilitaryElite.Interfaces;
 
 namespace MilitaryElite.Implementations
 {
-    public class Spy : ISoldier, ISpy
+    public class Spy : Soldier, ISpy
     {
-        public string Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int CodeNumber { get; set; }
+        public Spy(int id, string firstName, string lastName, string codeNumber) : base(id, firstName, lastName)
+        {
+            this.CodeNumber = codeNumber;
+        }
+
+        public string CodeNumber { get; set; }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Name: {FirstName} {LastName} Id: {Id}");
+            sb.AppendLine($"Code Number: {CodeNumber}");
+
+            return sb.ToString().TrimEnd();
+        }
     }
 }
