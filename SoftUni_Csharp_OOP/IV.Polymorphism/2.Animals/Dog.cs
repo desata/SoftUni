@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Animals
 {
-    public class Dog : Animals
+    public class Dog : Animal
     {
         public Dog(string name, string favoriteFood) : base(name, favoriteFood)
         {
@@ -17,7 +17,7 @@ namespace Animals
             builder.AppendLine(base.ExplainSelf());
             builder.AppendLine("DJAAF");
 
-            return builder.ToString().Trim();
+            return builder.ToString().TrimEnd();
 
         }
     }

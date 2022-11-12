@@ -6,8 +6,8 @@ namespace Animals
     {
         public static void Main(string[] args)
         {
-            Animals cat = new Cat("Peter", "Whiskas");
-            Animals dog = new Dog("George", "Meat");
+            Animal cat = new Cat("Peter", "Whiskas");
+            Animal dog = new Dog("George", "Meat");
 
             Console.WriteLine(cat.ExplainSelf());
             Console.WriteLine(dog.ExplainSelf());

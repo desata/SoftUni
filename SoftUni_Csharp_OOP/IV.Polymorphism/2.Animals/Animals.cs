@@ -4,20 +4,20 @@ using System.Text;
 
 namespace Animals
 {
-    public class Animals
+    public class Animal
     {
-        public Animals(string name, string favoriteFood)
+        public Animal(string name, string favoriteFood)
         {
             Name = name;
             FavoriteFood = favoriteFood;
         }
 
-        public string Name { get; set; }
-        public string FavoriteFood { get; set; }
+        public string Name { get; protected set; }
+        public string FavoriteFood { get; protected set; }
 
         public virtual string ExplainSelf()
         {
-            return $"I am {Name} and my fovourite food is {FavoriteFood}";
+            return $"I am {this.Name} and my fovourite food is {this.FavoriteFood}";
         }
     }
 }
