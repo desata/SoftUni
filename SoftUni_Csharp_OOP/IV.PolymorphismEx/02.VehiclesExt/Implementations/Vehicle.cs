@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vehicles2.Contracts;
+﻿using VehiclesExt.Contracts;
 
-namespace Vehicles2
+namespace VehiclesExt.Implementations
 {
     public abstract class Vehicle : IVehicle
     {
+        private double fuelQty;
+
         protected Vehicle(double fuelQty, double fuelConsumption, double tankCapacity)
         {
             FuelQty = fuelQty;
@@ -16,16 +15,19 @@ namespace Vehicles2
 
         public double FuelQty
         {
-            get { return this.FuelQty; }
+            get
+            {
+                return fuelQty;
+            }
             private set
             {
-                if (value > this.TankCapacity)
+                if (fuelQty > TankCapacity)
                 {
                     FuelQty = 0;
                 }
                 else
                 {
-                    FuelQty = value;
+                    fuelQty = value;
                 }
             }
         }
@@ -35,13 +37,14 @@ namespace Vehicles2
         public double TankCapacity { get; private set; }
 
 
-        public string Drive(double distance, double fuelExtraQty)
+        public string Drive(double distance, double increasedConsumption)
         {
-            FuelConsumption += fuelExtraQty;
+            this.FuelConsumption += increasedConsumption;
 
             if (this.FuelQty - distance * this.FuelConsumption >= 0)
             {
                 this.FuelQty -= distance * this.FuelConsumption;
+
                 return $"{this.GetType().Name} travelled {distance} km";
             }
             else
@@ -52,22 +55,24 @@ namespace Vehicles2
 
         public virtual void Refuel(double litters)
         {
-
-
             if (this.FuelQty + litters > this.TankCapacity)
             {
-                Console.WriteLine($"Cannot fit {litters} fuel in the tank");
+                System.Console.WriteLine($"Cannot fit {litters} fuel in the tank");
+            }
+            else if (litters <= 0)
+            {
+                System.Console.WriteLine("Fuel must be a positive number");
             }
             else
             {
                 this.FuelQty += litters;
             }
-            
+
         }
 
         public override string ToString()
         {
-             return $"{this.GetType().Name}: {this.FuelQty:f2}";
+            return $"{this.GetType().Name}: {this.FuelQty:f2}";
         }
     }
 }

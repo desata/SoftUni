@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vehicles.Contracts
+namespace Vehicles2.Contracts
 {
     public interface IVehicle
     {
@@ -10,7 +10,9 @@ namespace Vehicles.Contracts
 
         public double FuelConsumption { get; }
 
-        string Drive(double distance);
+        public double TankCapacity { get; }
+
+        string Drive(double distance, double fuelExtraQty);
 
         void Refuel(double litters);
 

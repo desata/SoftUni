@@ -1,4 +1,4 @@
-﻿namespace Vehicles2
+﻿namespace VehiclesExt.Implementations
 {
     public class Car : Vehicle
     {

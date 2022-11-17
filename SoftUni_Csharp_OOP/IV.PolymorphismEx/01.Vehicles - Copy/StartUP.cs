@@ -1,21 +1,30 @@
 ﻿using System;
 
-namespace Vehicles
+namespace Vehicles2
 {
     public class StartUP
     {
         static void Main(string[] args)
         {
+
             string[] carInfo = Console.ReadLine().Split();
             double carFuelQty = double.Parse(carInfo[1]);
             double carFuelConsumption = double.Parse(carInfo[2]);
-            Vehicle car = new Car(carFuelQty, carFuelConsumption);
-
+            double carTankCapacity = double.Parse(carInfo[3]);
+            Vehicle car = new Car(carFuelQty, carFuelConsumption, carTankCapacity);
 
             string[] truckInfo = Console.ReadLine().Split();
             double truckFuelQty = double.Parse(truckInfo[1]);
             double truckFuelConsumption = double.Parse(truckInfo[2]);
-            Vehicle truck = new Truck(truckFuelQty, truckFuelConsumption);
+            double truckTankCapacity = double.Parse(truckInfo[3]);
+            Vehicle truck = new Truck(truckFuelQty, truckFuelConsumption, truckTankCapacity);
+
+            string[] busInfo = Console.ReadLine().Split();
+            double busFuelQty = double.Parse(busInfo[1]);
+            double busFuelConsumption = double.Parse(busInfo[2]);
+            double busTankCapacity = double.Parse(busInfo[3]);
+            Vehicle bus = new Bus(busFuelQty, busFuelConsumption, busTankCapacity);
+
 
             int lineNumbers = int.Parse(Console.ReadLine());
 
@@ -30,14 +39,18 @@ namespace Vehicles
                 {
                     if (vehicleType == "Car")
                     {
-                        Console.WriteLine(car.Drive(amount));
+                        Console.WriteLine(car.Drive(amount, 0.9));
                     }
                     else if (vehicleType == "Truck")
                     {
-                        Console.WriteLine(truck.Drive(amount));
+                        Console.WriteLine(truck.Drive(amount, 1.6));
+                    }
+                    else
+                    {
+                        Console.WriteLine(bus.Drive(amount, 1.4));
                     }
                 }
-                else
+                else if (action == "Refuel")
                 {
                     if (vehicleType == "Car")
                     {
@@ -47,11 +60,20 @@ namespace Vehicles
                     {
                         truck.Refuel(amount);
                     }
+                    else
+                    {
+                        bus.Refuel(amount);
+                    }
+                }
+                else if (action == "DriveEmpty")
+                {
+                    Console.WriteLine(bus.Drive(amount, 0));
                 }
             }
 
             Console.WriteLine(car.ToString());
             Console.WriteLine(truck.ToString());
+            Console.WriteLine(bus.ToString());
 
         }
     }
