@@ -383,36 +383,37 @@ VALUES
 (3, '2022-12-14', 'AN100200400', '6234', 4, NULL)
 
 
---19. Basic Select All Fields
-select * from Towns
-select * from Departments
-select * from Employees
+--19. Basic SELECT All Fields
+SELECT * FROM Towns
+SELECT * FROM Departments
+SELECT * FROM Employees
 
 
---20. Basic Select All Fields and Order Them
-select * from Towns order by [Name] asc;
-select * from Departments order by [Name] asc;
-select * from Employees order by [Salary] desc;
+--20. Basic SELECT All Fields and Order Them
+SELECT * FROM Towns order by [Name] asc;
+SELECT * FROM Departments order by [Name] asc;
+SELECT * FROM Employees order by [Salary] desc;
 
 
---21. Basic Select Some Fields
-select [Name] from Towns order by [Name] asc;
-select [Name] from Departments order by [Name] asc;
-select FirstName, LastName, JobTitle, Salary from Employees order by Salary desc;
+--21. Basic SELECT Some Fields
+SELECT [Name] from Towns order by [Name] asc;
+SELECT [Name] from Departments order by [Name] asc;
+SELECT FirstName, LastName, JobTitle, Salary from Employees order by Salary desc;
 
 
 --22. Increase Employees Salary
 UPDATE Employees
 set Salary *= 1.1;
   
-select Salary from Employees;  
+SELECT Salary from Employees;  
 
 
 --23. Decrease Tax Rate
 UPDATE Payments
 set TaxRate *= 0.97;
 
-select TaxRate from Payments;
+SELECT TaxRate from Payments;
+
 
 --24. Delete All Records
 delete from Occupancies
