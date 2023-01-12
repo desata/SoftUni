@@ -26,7 +26,7 @@ FROM Employees
 select distinct Salary from Employees
 
 --08. Find all Information About Employees
-select * from Employees
+SELECT * from Employees
 where JobTitle = 'Sales Representative'
 
 --09. Find Names of All Employees by Salary in Range
