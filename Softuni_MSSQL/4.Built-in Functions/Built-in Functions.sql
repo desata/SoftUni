@@ -81,3 +81,31 @@ where Right(p.PeakName, 1) = Left(r.RiverName, 1)
 order by Mix
 
 --14. Games From 2011 and 2012 Year
+--Find and display the top 50 games which start date is from 2011 and 2012 year. 
+--Order them by start date, then by name of the game. 
+--The start date should be in the following format: "yyyy-MM-dd".
+
+select top 50 [Name], format([Start], 'yyyy-MM-dd') as [Start] from Games
+where YEAR([Start]) between 2011 and 2012
+order by [Start], [Name]
+
+
+--15. User Email Providers
+--Find all users with information about their email providers. 
+--Display the username and email provider. 
+--Sort the results by email provider alphabetically, then by username. 
+
+select Username, SUBSTRING(Email, CHARINDEX('@', EMAIL)+1, LEN(Email)) as [Email Provider] 
+from Users
+order by [Email Provider], Username
+
+
+--16. Get Users with IP Address Like Pattern
+
+select Username, 
+IPAddress as [IP Address]
+from Users
+where IPAddress like ('___.1%.%.___') 
+Order By Username
+
+--
