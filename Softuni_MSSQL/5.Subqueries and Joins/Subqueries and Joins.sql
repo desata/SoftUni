@@ -85,3 +85,22 @@ where ep.ProjectID is NULL
 order by e.EmployeeID
 
 --06. Employees Hired After
+/*Create a query that selects:
+FirstName
+LastName
+HireDate
+DeptName
+Filter only employees hired after 1.1.1999 and are from either "Sales" or "Finance" department. Sort them by HireDate (ascending).
+*/
+select 
+e.FirstName,
+e.LastName,
+e.HireDate,
+d.Name as DeptName
+from Employees e
+join Departments d on e.DepartmentID = d.DepartmentID
+where 
+e.DepartmentID in (3, 10) 
+and 
+HireDate > Convert(datetime, '1.1.1999' )
+order by HireDate 
