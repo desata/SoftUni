@@ -99,8 +99,24 @@ e.HireDate,
 d.Name as DeptName
 from Employees e
 join Departments d on e.DepartmentID = d.DepartmentID
-where 
-e.DepartmentID in (3, 10) 
-and 
-HireDate > Convert(datetime, '1.1.1999' )
+where e.DepartmentID in (3, 10) 
+and HireDate > Convert(datetime, '1.1.1999' )
 order by HireDate 
+
+--07. Employees With Project
+/*Create a query that selects:
+•	EmployeeID
+•	FirstName
+•	ProjectName
+Filter only employees with a project which has started after 13.08.2002 and it is still ongoing (no end date). 
+Return the first 5 rows sorted by EmployeeID in ascending order.
+*/
+select top 5 
+e.EmployeeID, e.FirstName, p.Name from Employees e
+join EmployeesProjects ep on ep.EmployeeID = e.EmployeeID 
+join Projects p on ep.ProjectID = p.ProjectID
+where p.EndDate is NULL
+and p.StartDate > Convert(smalldatetime, '13.08.2002', 104) 
+order by e.EmployeeID
+
+--08. Employee 24
