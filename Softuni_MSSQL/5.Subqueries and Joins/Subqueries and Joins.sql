@@ -120,3 +120,34 @@ and p.StartDate > Convert(smalldatetime, '13.08.2002', 104)
 order by e.EmployeeID
 
 --08. Employee 24
+/*Create a query that selects:
+•	EmployeeID
+•	FirstName
+•	ProjectName
+Filter all the projects of employee with Id 24. 
+If the project has started during or after 2005 the returned value should be NULL
+*/
+select --top 5 
+e.EmployeeID, e.FirstName, 
+case
+when p.StartDate > Convert(smalldatetime, '1.1.2005', 104) then NULL
+else [Name]
+END as ProjectName
+from Employees e
+join EmployeesProjects ep on ep.EmployeeID = e.EmployeeID 
+join Projects p on ep.ProjectID = p.ProjectID
+where e.EmployeeID = 24
+
+--09. Employee Manager
+/*Create a query that selects:
+•	EmployeeID
+•	FirstName
+•	ManagerID
+•	ManagerName
+Filter all employees with a manager who has ID equals to 3 or 7. 
+Return all the rows, sorted by EmployeeID in ascending order.
+*/
+select e.EmployeeID, e.FirstName, e.ManagerID, ee.FirstName as [ManagerName] from Employees e
+join Employees ee on e.ManagerID = ee.EmployeeID
+where e.ManagerID in (3, 7)
+order by e.EmployeeID
