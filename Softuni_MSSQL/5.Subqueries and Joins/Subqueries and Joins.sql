@@ -151,3 +151,21 @@ select e.EmployeeID, e.FirstName, e.ManagerID, ee.FirstName as [ManagerName] fro
 join Employees ee on e.ManagerID = ee.EmployeeID
 where e.ManagerID in (3, 7)
 order by e.EmployeeID
+
+--10. Employees Summary
+/*Create a query that selects:
+•	EmployeeID
+•	EmployeeName
+•	ManagerName
+•	DepartmentName
+Show the first 50 employees with their managers and the departments they are in (show the departments of the employees).
+Order them by EmployeeID.
+*/
+select  top 50 
+e.EmployeeID, 
+CONCAT(e.FirstName, ' ', e.LastName) as EmployeeName, 
+CONCAT(ee.FirstName, ' ', ee.LastName) as [ManagerName], 
+d.Name as DepartmentName from Employees e
+join Employees ee on e.ManagerID = ee.EmployeeID
+join Departments d on e.DepartmentID = d.DepartmentID
+order by e.EmployeeID
