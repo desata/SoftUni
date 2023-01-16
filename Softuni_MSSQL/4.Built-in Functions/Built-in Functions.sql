@@ -148,3 +148,31 @@ select
 from Orders
 
 
+--19. People Table
+/*
+Create a table People(Id, Name, Birthdate). 
+Write a query to find age in years, months, days and minutes for each person for the current time of executing the query.
+*/
+
+--CREATE TABLE PEOPLE
+--(
+--[ID] int primary key IDENTITY(1,1) not null,
+--[Name] [varchar](50) NOT NULL,
+--[Birthdate] [datetime] NOT NULL
+--)
+
+--insert into PEOPLE ([Name], [Birthdate])
+--VALUES
+--('Victor', '2000-12-07 00:00:00.000') ,
+--('Steven', '1992-09-10 00:00:00.000') ,
+--('Stephen', '1910-09-19 00:00:00.000') ,
+--('John', '2010-01-06 00:00:00.000')
+
+
+select [Name],
+year(GETDATE()) - year(Birthdate) as [Age in Years],
+--Age in Years	Age in Months	Age in Days	Age in Minutes
+from people
+
+
+select datediff(yy,Dateofbirthcol,current_date()) As Age
