@@ -66,3 +66,17 @@ join items i on gi.ItemId = i.Id
 group by u.Username, g.Name
 having count(i.Name) >= 10
 order by count(i.Name) desc, sum(i.Price) desc, u.Username asc
+
+--04. *User in Games with Their Statistics
+
+
+--05. All Items with Greater than Average Statistics
+select i.Name,	Price,	MinLevel,	Strength,	Defence,	Speed,	Luck,	Mind from [Items] i
+join [Statistics] s on s.Id = i.StatisticId
+where (Mind > 9 and Luck > 9 and Speed > 9)
+
+--06. Display All Items about Forbidden Game Type
+select i.Name as Item, Price, MinLevel, g.Name as [Forbidden Game Type] from Items i
+left outer join GameTypeForbiddenItems gt on i.Id = gt.ItemId
+left outer join GameTypes g on g.Id = gt.GameTypeId
+order by g.Name desc, i.Name
