@@ -54,3 +54,85 @@ AS
 	)
 
 
+/*3.	Deposit Money
+Add stored procedure usp_DepositMoney(AccountId, MoneyAmount) that deposits money to an existing account. 
+Make sure to guarantee valid positive MoneyAmount with precision up to the fourth sign after the decimal point. 
+The procedure should produce exact results working with the specified precision.
+*/
+
+GO
+CREATE PROC usp_DepositMoney (@accountId INT, @moneyAmount MONEY)
+AS
+BEGIN TRANSACTION
+	IF NOT EXISTS(SELECT [Id] FROM [Accounts] WHERE [Id] = @accountId )
+	BEGIN
+		ROLLBACK;
+		THROW 50001, 'Invalid Account Number', 1
+	END
+
+	IF @moneyAmount < 0
+	BEGIN
+		ROLLBACK;
+		THROW 50002, 'Invalid deposit amount', 2
+	END
+
+UPDATE [Accounts]
+	SET [Balance] += @moneyAmount
+	WHERE [Id] = @accountId
+COMMIT
+GO
+
+SELECT * FROM Accounts
+
+EXEC usp_DepositMoney 1, 1000
+
+/*4.	Withdraw Money Procedure
+Add stored procedure usp_WithdrawMoney (AccountId, MoneyAmount) that withdraws money from an existing account. 
+Make sure to guarantee valid positive MoneyAmount with precision up to the fourth sign after decimal point. 
+The procedure should produce exact results working with the specified precision.
+*/
+GO
+CREATE PROC usp_WithdrawMoney (@accountId INT, @moneyAmount MONEY)
+AS
+BEGIN TRANSACTION
+	IF NOT EXISTS(SELECT [Id] FROM [Accounts] WHERE [Id] = @accountId )
+	BEGIN
+		ROLLBACK;
+		THROW 50001, 'Invalid Account Number', 1
+	END
+
+	IF (SELECT [Balance] FROM [Accounts] WHERE [Id] = @accountId ) < @moneyAmount
+	BEGIN
+		ROLLBACK;
+		THROW 50002, 'Not enough funds!', 2
+	END
+
+UPDATE [Accounts]
+	SET [Balance] -= @moneyAmount
+	WHERE [Id] = @accountId
+COMMIT
+GO
+
+SELECT * FROM Accounts WHERE Id = 1
+
+EXEC usp_WithdrawMoney 1, 2000
+
+/*5.	Money Transfer
+Create stored procedure usp_TransferMoney(SenderId, ReceiverId, Amount) that transfers money from one account
+to another. Make sure to guarantee valid positive MoneyAmount with precision up to the fourth sign
+after the decimal point. Make sure that the whole procedure passes without errors and if an error occurs
+make no change in the database. You can use both: "usp_DepositMoney", "usp_WithdrawMoney"
+(look at the previous two problems about those procedures). 
+*/
+
+GO
+CREATE PROC usp_TransferMoney(@senderId INT, @receiverId INT, @amount MONEY)
+AS
+	BEGIN TRANSACTION
+		EXEC usp_WithdrawMoney @senderId, @amount
+		EXEC usp_DepositMoney @receiverId, @amount
+	COMMIT
+GO
+
+SELECT * FROM Accounts WHERE Id IN (1,2)
+EXEC usp_TransferMoney 1, 2, 1000
