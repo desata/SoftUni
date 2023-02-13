@@ -69,6 +69,7 @@ order by count(i.Name) desc, sum(i.Price) desc, u.Username asc
 
 --04. *User in Games with Their Statistics
 
+--TODO
 
 --05. All Items with Greater than Average Statistics
 select i.Name,	Price,	MinLevel,	Strength,	Defence,	Speed,	Luck,	Mind from [Items] i
@@ -80,3 +81,55 @@ select i.Name as Item, Price, MinLevel, g.Name as [Forbidden Game Type] from Ite
 left outer join GameTypeForbiddenItems gt on i.Id = gt.ItemId
 left outer join GameTypes g on g.Id = gt.GameTypeId
 order by g.Name desc, i.Name
+
+--7. Buy Items for User in Game
+/*
+User Alex is in the shop of the game "Edinburgh" and she wants to buy some items. 
+She likes Blackguard, Bottomless Potion of Amplification, Eye of Etlich (Diablo III), Gem of Efficacious Toxin, Golden Gorget of Leoric and Hellfire Amulet.
+Buy the items. 
+You should add the data in the right tables. 
+Get the money for the items from the user in column Cash.
+Select all users in the current game with their items. 
+Display username, game name, cash and item name. 
+Sort the result by item name.
+Submit your query statements as Prepare DB & run queries in Judge.
+*/
+
+DECLARE @USERID INT= (SELECT Id
+                      FROM Users
+                      WHERE Username = 'Alex');
+
+DECLARE @GAMEID INT= (SELECT Id
+                      FROM Games
+                      WHERE Name = 'Edinburgh');
+
+DECLARE @UGID INT= (SELECT Id
+                    FROM UsersGames
+                    WHERE UserId = @USERID
+                      AND GameId = @GAMEID);
+
+UPDATE UsersGames
+SET Cash-=(SELECT SUM(I.Price)
+FROM Items AS I
+WHERE I.Name IN ('Blackguard', 'Bottomless Potion of Amplification',
+                 'Eye of Etlich (Diablo III)', 'Gem of Efficacious Toxin',
+                 'Golden Gorget of Leoric', 'Hellfire Amulet'))
+WHERE Id = @UGID;
+
+INSERT INTO UserGameItems(ItemId, UserGameId)
+VALUES
+((SELECT Id FROM Items WHERE Name = 'Blackguard'), @UGID),
+((SELECT Id FROM Items WHERE Name='Bottomless Potion of Amplification'),@UGID ),
+((SELECT Id FROM Items WHERE Name='Eye of Etlich (Diablo III)'),@UGID ),
+((SELECT Id FROM Items WHERE Name='Gem of Efficacious Toxin'),@UGID ),
+((SELECT Id FROM Items WHERE Name='Golden Gorget of Leoric'),@UGID ),
+((SELECT Id FROM Items WHERE Name='Hellfire Amulet'),@UGID )
+
+SELECT U.Username, G.Name, UG.Cash, I.Name
+FROM Users AS U
+JOIN UsersGames UG on U.Id = UG.UserId
+JOIN Games G on G.Id = UG.GameId
+JOIN UserGameItems UGI on UG.Id = UGI.UserGameId
+JOIN Items I on I.Id = UGI.ItemId
+WHERE G.Name = 'Edinburgh'
+ORDER BY I.Name
