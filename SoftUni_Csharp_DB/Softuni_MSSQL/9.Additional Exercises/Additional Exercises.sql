@@ -133,3 +133,5 @@ JOIN UserGameItems UGI on UG.Id = UGI.UserGameId
 JOIN Items I on I.Id = UGI.ItemId
 WHERE G.Name = 'Edinburgh'
 ORDER BY I.Name
+
+
