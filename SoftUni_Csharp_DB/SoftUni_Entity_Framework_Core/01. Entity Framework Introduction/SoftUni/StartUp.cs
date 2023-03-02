@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SoftUni.Data;
 using SoftUni.Models;
 using System.Diagnostics.Metrics;
+using System.Globalization;
 using System.Text;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -13,44 +14,50 @@ namespace SoftUni
         static void Main(string[] args)
         {
             SoftUniContext dbContext = new SoftUniContext();
-            string result = AddNewAddressToEmployee(dbContext);
+            string result = GetEmployeesInPeriod(dbContext);
 
             Console.WriteLine(result);
 
-
         }
 
-        public static string AddNewAddressToEmployee(SoftUniContext context)
+        public static string GetEmployeesInPeriod(SoftUniContext context)
         {
-            //Create a new address with the text "Vitoshka 15" and TownId = 4. Set that address to the employee with last the name "Nakov".
-            //Then order by descending all the employees by their Address' Id, take 10 rows and from them, take the AddressText.
-            //Return the results each on a new line:
-
-            var newAddress = new Address()
-            {
-                AddressText = "Vitoshka 15",
-                TownId = 4
-
-            };
-
-            var employee = context.Employees.FirstOrDefault(d => d.LastName == "Nakov");
-            employee.Address = newAddress;
-
-            context.SaveChanges();
-
-            var employeeAdresses = context.Employees
-                .OrderByDescending(e => e.AddressId)
-                .Take(10)
-                .Select(e => e.Address!.AddressText)
-                .ToArray();
+            //Find the first 10 employees who have projects started in the period 2001 - 2003 (inclusive). Print each employee's first name, last name, manager's first name and last name. Then return all of their projects in the format "--<ProjectName> - <StartDate> - <EndDate>", each on a new row. If a project has no end date, print "not finished" instead.
 
             StringBuilder sb = new StringBuilder();
 
-            foreach (var employeeAdresse in employeeAdresses)
+            var employeeProjects = context.Employees
+               .Take(10)
+                .Select(e => new
+                {
+                    e.FirstName,
+                    e.LastName,
+                    ManagerFirstName = e.Manager!.FirstName,
+                    ManagerLastName = e.Manager!.LastName,
+                    Project = e.EmployeesProjects.
+                    Where(ep => ep.Project!.StartDate.Year >= 2001 && ep.Project.StartDate.Year <= 2003)
+                    .Select(ep => new
+                    {
+                        ProjectName = ep.Project!.Name,
+                        StartDate = ep.Project.StartDate.ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
+                        EndDate = ep.Project.EndDate.HasValue ?
+                    ep.Project.EndDate.Value.ToString("M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture) : "not finished"
+                    })
+                    .ToArray()
+                })
+                .ToArray();
+
+
+            foreach (var eep in employeeProjects)
             {
-                sb.AppendLine(employeeAdresse);
+                sb.AppendLine($"{eep.FirstName} {eep.LastName} - Manager: {eep.ManagerFirstName} {eep.ManagerLastName}");
+                foreach (var p in eep.Project)
+                {
+                    sb.AppendLine($"--{p.ProjectName} - {p.StartDate} - {p.EndDate}");
+                }                
+
             }
-            
+
             return sb.ToString().TrimEnd();
 
         }
