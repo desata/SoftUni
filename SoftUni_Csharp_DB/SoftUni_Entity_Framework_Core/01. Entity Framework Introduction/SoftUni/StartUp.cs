@@ -16,31 +16,40 @@ namespace SoftUni
         static void Main(string[] args)
         {
             SoftUniContext dbContext = new SoftUniContext();
-            string result = DeleteProjectById(dbContext);
+            string result = RemoveTown(dbContext);
 
             Console.WriteLine(result);
 
         }
 
-        public static string DeleteProjectById(SoftUniContext context)
+        public static string RemoveTown(SoftUniContext context)
         {
-            //Let's delete the project with id 2.
-            //Then, take 10 projects and return their names, each on a new line.
-            //Remember to restore your database after this task.
+            //Write a program that deletes a town with name "Seattle".
+            //Also, delete all addresses that are in those towns.
+            //Return the number of addresses that were deleted in format "{count} addresses in Seattle were deleted".
+            //There will be employees living at those addresses, which will be a problem when trying to delete the addresses.
+            //So, start by setting the AddressId of each employee for the given address to null.
+            //After all of them are set to null, you may safely remove all the addresses from the context and finally remove the given town.
 
-            IQueryable<EmployeeProject> epToDelete = context.EmployeesProjects
-            .Where(ep => ep.ProjectId == 2);
-            context.EmployeesProjects.RemoveRange(epToDelete);
+            var townForDelete = context.Towns.FirstOrDefault(t => t.Name == "Seattle");
 
-            Project projectToDelete = context.Projects.Find(2)!;
-            context.Projects.Remove(projectToDelete);
+            var address = context.Addresses.Where(a => a.Town!.Name == "Seattle").ToList();
+
+            foreach (var employee in context.Employees)
+            {
+                if (address.Any(a => a.AddressId == employee.AddressId))
+                {
+                    employee.AddressId = null;
+                }
+            }
+
+            int numberOfDeletedAddresses = address.Count;
+
+            context.Addresses.RemoveRange(address);
+            context.Towns.Remove(townForDelete);
+
             context.SaveChanges();
-
-            string[] projectNames = context.Projects
-                .Take(10)
-                .Select(p => p.Name)
-                .ToArray();
-            return String.Join(Environment.NewLine, projectNames);
+            return $"{numberOfDeletedAddresses} addresses in Seattle were deleted";
 
         }
     }
