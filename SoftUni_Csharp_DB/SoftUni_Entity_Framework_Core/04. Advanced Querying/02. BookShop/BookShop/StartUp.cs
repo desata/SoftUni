@@ -13,12 +13,15 @@
             using var db = new BookShopContext();
            // DbInitializer.ResetDatabase(db);
 
-            string input = Console.ReadLine();
-            string result = GetBooksByAgeRestriction(db, input);
+            //string input = Console.ReadLine();
+            //string result = GetBooksByAgeRestriction(db, input);
+
+            string result = GetGoldenBooks(db);
             Console.WriteLine(result);
 
-        }
 
+
+        }
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
         {
 
@@ -44,5 +47,24 @@
             }
             return null;
         }
+
+        public static string GetGoldenBooks(BookShopContext context)
+        {
+            //Return in a single string the titles of the golden edition books that have less than 5000 copies, each on a new line.
+            //Order them by BookId ascending.
+            //Call the GetGoldenBooks(BookShopContext context) method in your Main() and print the returned string to the console.
+
+            var goldenBook = context.Books
+                .OrderBy(b => b.BookId)
+                .Where(b => b.EditionType == EditionType.Gold && b.Copies < 5000)
+                .Select(b => b.Title)
+                .ToList();
+                
+
+            return String.Join(Environment.NewLine, goldenBook);
+
+
+        }
+
     }
 }
