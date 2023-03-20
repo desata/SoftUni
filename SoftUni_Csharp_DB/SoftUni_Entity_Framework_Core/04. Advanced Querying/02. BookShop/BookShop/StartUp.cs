@@ -62,11 +62,15 @@
             //string result = GetTotalProfitByCategory(db);
 
             //14
-            string result = GetMostRecentBooks(db);
+            //string result = GetMostRecentBooks(db);
 
+            //15
+            //IncreasePrices(db);
 
+            //16
+            int result = RemoveBooks(db);
 
-            Console.WriteLine(result);
+           Console.WriteLine(result);
         }
         public static string GetBooksByAgeRestriction(BookShopContext context, string command)
         {
@@ -339,8 +343,6 @@
             return sb.ToString().TrimEnd();
         }
 
-
-
         public static string GetMostRecentBooks(BookShopContext context)
         {
             //Get the most recent books by categories.
@@ -382,7 +384,39 @@
             return sb.ToString().TrimEnd();
         }
 
+        public static void IncreasePrices(BookShopContext context)
+        {
+            //Increase the prices of all books released before 2010 by 5.
+
+            var bookToBeIncreased = context.Books
+                .Where(b => b.ReleaseDate.Value.Year < 2010)               
+                .ToList();
+
+            bookToBeIncreased.ForEach(b => b.Price += 5);
+
+           // return bookToBeIncreased;
 
 
+
+        }
+
+        public static int RemoveBooks(BookShopContext context)
+        {
+
+            var booksToDelete = context.Books.Where(b => b.Copies < 4200).ToList();
+
+            int rez = booksToDelete.Count();
+
+            context.Books.RemoveRange(booksToDelete);
+
+            foreach (var item in booksToDelete)
+            {
+                context.Books.Remove(item);
+            }
+            context.SaveChanges();
+
+
+            return rez;
+        }
     }
 }
