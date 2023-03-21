@@ -70,14 +70,26 @@ namespace ProductShop
         public static string ImportCategories(ProductShopContext context, string inputJson)
         {
             IMapper mapper = CreateMapper();
+
             ImportCategoriesDto[] categorieDtos = JsonConvert.DeserializeObject<ImportCategoriesDto[]>(inputJson);
 
-            Category[] categories = mapper.Map<Category[]>(categorieDtos);
+            ICollection<Category> categories = new HashSet<Category>();
+
+            foreach (ImportCategoriesDto categoryDto in categorieDtos)
+            {
+                if (String.IsNullOrEmpty(categoryDto.Name))
+                {
+                    continue;
+                }
+
+                Category category = mapper.Map<Category>(categoryDto);
+                categories.Add(category);
+            }
 
             context.Categories.AddRange(categories);
             context.SaveChanges();
 
-            return $"Successfully imported {categories.Length}";
+            return $"Successfully imported {categories.Count}";
 
 
         }

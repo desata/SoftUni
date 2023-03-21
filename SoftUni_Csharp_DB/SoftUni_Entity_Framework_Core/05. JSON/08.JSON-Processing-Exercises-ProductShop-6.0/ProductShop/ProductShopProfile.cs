@@ -11,8 +11,11 @@ namespace ProductShop
             //User
             this.CreateMap<ImportUserDto, User>();
 
-            //Produst
+            //Product
             this.CreateMap<ImportProductDto, Product>();
+
+            //Categorie
+            this.CreateMap<ImportCategoriesDto, Category>();
 
         }
     }
