@@ -13,21 +13,24 @@ namespace ProductShop
         {
            ProductShopContext context = new ProductShopContext();
 
-            string inputJson = File.ReadAllText(@"../../../Datasets/products.json");
+            string inputJson = File.ReadAllText(@"../../../Datasets/categories.json");
             //01
             //string result = ImportUsers(context, inputJson);
 
-            string result = ImportProducts(context, inputJson);
+            //02
+            //string result = ImportProducts(context, inputJson);
+
+
+            //03
+            string result = ImportCategories(context, inputJson);
+
             Console.WriteLine(result);
         }
 
         //01. Import Users
         public static string ImportUsers(ProductShopContext context, string inputJson)
         {
-           IMapper  mapper = new Mapper(new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<ProductShopProfile>();
-            }));
+            IMapper mapper = CreateMapper();
 
             ImportUserDto[] userDtos = JsonConvert.DeserializeObject<ImportUserDto[]>(inputJson);
 
@@ -49,10 +52,7 @@ namespace ProductShop
         //02. Import Products
         public static string ImportProducts(ProductShopContext context, string inputJson)
         {
-            IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<ProductShopProfile>();
-            }));
+            IMapper mapper = CreateMapper();
 
             ImportProductDto[] productsDtos = JsonConvert.DeserializeObject<ImportProductDto[]>(inputJson);
 
@@ -65,5 +65,31 @@ namespace ProductShop
             return $"Successfully imported {products.Length}";
         }
 
+
+        //03. Import Categories
+        public static string ImportCategories(ProductShopContext context, string inputJson)
+        {
+            IMapper mapper = CreateMapper();
+            ImportCategoriesDto[] categorieDtos = JsonConvert.DeserializeObject<ImportCategoriesDto[]>(inputJson);
+
+            Category[] categories = mapper.Map<Category[]>(categorieDtos);
+
+            context.Categories.AddRange(categories);
+            context.SaveChanges();
+
+            return $"Successfully imported {categories.Length}";
+
+
+        }
+
+
+
+        private static IMapper CreateMapper()
+        {
+            return new Mapper(new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<ProductShopProfile>();
+            }));
+        }
     }
 }

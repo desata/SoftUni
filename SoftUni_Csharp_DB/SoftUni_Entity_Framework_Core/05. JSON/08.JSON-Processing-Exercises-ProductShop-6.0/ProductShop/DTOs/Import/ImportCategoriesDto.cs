@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProductShop.DTOs.Import
 {
-    internal class ImportCategoriesDto
+    public class ImportCategoriesDto
     {
+
+        public string? Name { get; set;}
     }
 }
