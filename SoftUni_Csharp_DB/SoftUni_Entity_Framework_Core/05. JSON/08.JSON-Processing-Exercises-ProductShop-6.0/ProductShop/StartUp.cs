@@ -33,7 +33,13 @@ namespace ProductShop
             //string result = ImportCategoryProducts(context, inputJson);
 
             //05
-            string result = GetSoldProducts(context);
+            //string result = GetProductsInRange(context);
+
+            //06
+            //string result = GetSoldProducts(context);
+            
+            //07
+            string result = GetCategoriesByProductsCount(context);
 
             Console.WriteLine(result);
         }
@@ -169,13 +175,14 @@ namespace ProductShop
 
         }
 
+
         //06. Export Sold Products
         public static string GetSoldProducts(ProductShopContext context)
         {
             IContractResolver contractResolver = ConfigureCamelCaseNaming();
 
             var userSoldProducts = context.Users
-                .Where(u => u.ProductsSold.Count >= 1)
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
                 .OrderBy(u => u.LastName)
                 .ThenBy(u => u.FirstName)
                 .Select(u => new
@@ -192,6 +199,7 @@ namespace ProductShop
                     buyerLastName = ps.Buyer.LastName
                     }).ToArray()
                 })
+                .AsNoTracking()
                 .ToArray();
 
             return JsonConvert.SerializeObject(userSoldProducts, Formatting.Indented, new JsonSerializerSettings()
@@ -199,6 +207,29 @@ namespace ProductShop
                 ContractResolver = contractResolver
             });
 
+        }
+
+
+        //07. Export Categories By Products Count
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            IContractResolver contractResolver = ConfigureCamelCaseNaming();
+
+            var categoriesByProduct = context.Categories
+                .Select(c => new 
+                { 
+                    category = c.Name,
+                    productsCount = c.CategoriesProducts.Count(),
+                    AveragePrice = Math.Round((double)c.CategoriesProducts.Average(p => p.Product.Price), 2),
+                    TotalRevenue = Math.Round((double)c.CategoriesProducts.Sum(p => p.Product.Price), 2)
+                })
+                .AsNoTracking() 
+                .ToArray();
+
+            return JsonConvert.SerializeObject(categoriesByProduct, Formatting.Indented, new JsonSerializerSettings()
+            {
+                ContractResolver = contractResolver
+            });
         }
 
         private static IMapper CreateMapper()
