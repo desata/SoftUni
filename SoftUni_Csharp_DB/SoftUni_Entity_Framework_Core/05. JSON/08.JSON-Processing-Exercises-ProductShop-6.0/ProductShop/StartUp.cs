@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using ProductShop.Data;
 using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
@@ -168,7 +169,37 @@ namespace ProductShop
 
         }
 
+        //06. Export Sold Products
+        public static string GetSoldProducts(ProductShopContext context)
+        {
+            IContractResolver contractResolver = ConfigureCamelCaseNaming();
 
+            var userSoldProducts = context.Users
+                .Where(u => u.ProductsSold.Count >= 1)
+                .OrderBy(u => u.LastName)
+                .ThenBy(u => u.FirstName)
+                .Select(u => new
+                {
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    SoldProducts = u.ProductsSold
+                    .Where(ps => ps.BuyerId != null)
+                    .Select(ps => new 
+                    {
+                    Name = ps.Name,
+                    Price = ps.Price,
+                    buyerFirstName = ps.Buyer.FirstName,
+                    buyerLastName = ps.Buyer.LastName
+                    }).ToArray()
+                })
+                .ToArray();
+
+            return JsonConvert.SerializeObject(userSoldProducts, Formatting.Indented, new JsonSerializerSettings()
+            {
+                ContractResolver = contractResolver
+            });
+
+        }
 
         private static IMapper CreateMapper()
         {
@@ -176,6 +207,14 @@ namespace ProductShop
             {
                 cfg.AddProfile<ProductShopProfile>();
             }));
+        }
+
+        private static IContractResolver ConfigureCamelCaseNaming()
+        {
+            return new DefaultContractResolver()
+            {
+                NamingStrategy = new CamelCaseNamingStrategy(false, true)
+            };
         }
     }
 }
