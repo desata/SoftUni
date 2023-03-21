@@ -216,12 +216,13 @@ namespace ProductShop
             IContractResolver contractResolver = ConfigureCamelCaseNaming();
 
             var categoriesByProduct = context.Categories
+                .OrderByDescending(c => c.CategoriesProducts.Count)
                 .Select(c => new 
                 { 
-                    category = c.Name,
-                    productsCount = c.CategoriesProducts.Count(),
-                    AveragePrice = Math.Round((double)c.CategoriesProducts.Average(p => p.Product.Price), 2),
-                    TotalRevenue = Math.Round((double)c.CategoriesProducts.Sum(p => p.Product.Price), 2)
+                    Category = c.Name,
+                    ProductsCount = c.CategoriesProducts.Count,
+                    AveragePrice = Math.Round((double)c.CategoriesProducts.Average(p => p.Product.Price), 2).ToString("f2"),
+                    TotalRevenue = Math.Round((double)c.CategoriesProducts.Sum(p => p.Product.Price), 2).ToString("f2")
                 })
                 .AsNoTracking() 
                 .ToArray();
