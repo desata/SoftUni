@@ -2,8 +2,10 @@
 using CarDealer.Data;
 using CarDealer.DTOs.Import;
 using CarDealer.Models;
+using Castle.Core.Resource;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Linq;
 
 namespace CarDealer
 {
@@ -14,9 +16,22 @@ namespace CarDealer
             CarDealerContext context = new CarDealerContext();
 
             // from 01 to 04 incl
-            string inputJson = File.ReadAllText(@"../../../Datasets/suppliers.json");
+            string inputJson = File.ReadAllText(@"../../../Datasets/customers.json");
 
-            string result = ImportSuppliers(context, inputJson);
+            //09
+            //string result = ImportSuppliers(context, inputJson);
+
+            //10
+            //string result = ImportParts(context, inputJson);
+
+            //11
+            //string result = ImportCars(context, inputJson);
+            
+
+            //12
+            string result = ImportCustomers(context, inputJson);
+
+
             Console.WriteLine(result);
         }
 
@@ -39,6 +54,84 @@ namespace CarDealer
             context.SaveChanges();
 
             return $"Successfully imported {validSuppliers.Count}.";
+        }
+
+        ////10. Import Parts
+        public static string ImportParts(CarDealerContext context, string inputJson)
+        {
+            //If the supplierId doesn't exist in the Suppliers table, skip the record.
+
+            IMapper mapper = CreateMapper();
+
+            ImportPartsDto[] partsDtos = JsonConvert.DeserializeObject<ImportPartsDto[]>(inputJson);
+
+            ICollection<Part> validParts = new HashSet<Part>();
+
+
+            foreach (var dto in partsDtos)
+            {
+                if (!context.Suppliers.Any(p => p.Id == dto.SupplierId))
+                {
+                    continue;
+                }
+
+                Part parts = mapper.Map<Part>(dto);
+                validParts.Add(parts);
+            }
+
+            context.Parts.AddRange(validParts);
+            context.SaveChanges();
+
+            return $"Successfully imported {validParts.Count}.";
+        }
+
+        ////11. Import Cars
+        public static string ImportCars(CarDealerContext context, string inputJson)
+        {
+            var carsAndPartsDTO = JsonConvert.DeserializeObject<List<ImportCarsDto>>(inputJson);
+
+            List<PartCar> parts = new List<PartCar>();
+            List<Car> cars = new List<Car>();
+
+            foreach (var dto in carsAndPartsDTO)
+            {
+                Car car = new Car()
+                {
+                    Make = dto.Make,
+                    Model = dto.Model,
+                    TravelledDistance = dto.TravelledDistance
+                };
+                cars.Add(car);
+
+                foreach (var part in dto.PartsId.Distinct())
+                {
+                    PartCar partCar = new PartCar()
+                    {
+                        Car = car,
+                        PartId = part,
+                    };
+                    parts.Add(partCar);
+                }
+            }
+
+            context.Cars.AddRange(cars);
+            context.PartsCars.AddRange(parts);
+            context.SaveChanges();
+            return $"Successfully imported {cars.Count}.";
+
+        }
+
+        //12. Import Customers
+        public static string ImportCustomers(CarDealerContext context, string inputJson)
+        {
+            IMapper mapper = CreateMapper();
+
+            var customers = JsonConvert.DeserializeObject<List<Customer>>(inputJson);
+
+            context.Customers.AddRange(customers);
+            context.SaveChanges();
+
+            return $"Successfully imported {customers.Count}.";
         }
 
 

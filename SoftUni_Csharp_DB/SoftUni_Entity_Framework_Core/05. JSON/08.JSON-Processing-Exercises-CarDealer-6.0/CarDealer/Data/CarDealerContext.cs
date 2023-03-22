@@ -35,6 +35,14 @@ namespace CarDealer.Data
             {
                 e.HasKey(k => new { k.CarId, k.PartId });
             });
+
+            //modelBuilder.Entity<Supplier>(e =>
+            //{
+            //    e.HasMany(x => x.Parts)
+            //             .WithOne(x => x.Supplier)
+            //             .HasForeignKey(x => x.SupplierId)
+            //             .OnDelete(DeleteBehavior.NoAction);
+            //});
         }
     }
 }
