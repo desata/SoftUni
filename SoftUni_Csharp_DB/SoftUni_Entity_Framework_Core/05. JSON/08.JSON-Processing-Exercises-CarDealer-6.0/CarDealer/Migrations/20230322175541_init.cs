@@ -17,7 +17,7 @@ namespace CarDealer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Make = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TravelledDistance = table.Column<long>(type: "bigint", nullable: false)
+                    TraveledDistance = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
