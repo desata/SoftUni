@@ -19,7 +19,7 @@ namespace CarDealer.Data
         public DbSet<Part> Parts { get; set; }
         public DbSet<PartCar> PartsCars { get; set; }
         public DbSet<Sale> Sales { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
