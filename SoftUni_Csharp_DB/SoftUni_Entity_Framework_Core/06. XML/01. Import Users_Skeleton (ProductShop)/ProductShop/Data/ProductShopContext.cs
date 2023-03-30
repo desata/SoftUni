@@ -15,10 +15,10 @@
         {
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<CategoryProduct> CategoryProducts { get; set; }
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<CategoryProduct> CategoryProducts { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,6 +34,11 @@
             {
                 entity.HasKey(x => new { x.CategoryId, x.ProductId});
             });
+            
+            //modelBuilder.Entity<Product>(entity =>
+            //{
+            //    entity.Property(b => b.BuyerId).IsRequired(false);
+            //});
 
             modelBuilder.Entity<User>(entity =>
             {
