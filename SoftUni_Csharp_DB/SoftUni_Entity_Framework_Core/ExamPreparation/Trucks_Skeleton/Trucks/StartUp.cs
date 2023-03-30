@@ -19,7 +19,7 @@
 
             var projectDir = GetProjectDirectory();
 
-            //ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
+            ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
 
             //ExportEntities(context, projectDir + @"ExportResults/");
 
@@ -37,11 +37,11 @@
 
             PrintAndExportEntityToFile(despatchers, exportDir + "Actual Result - ImportDespatchers.txt");
 
-            var clients =
-             DataProcessor.Deserializer.ImportClient(context,
-                 File.ReadAllText(baseDir + "clients.json"));
+            //var clients =
+            // DataProcessor.Deserializer.ImportClient(context,
+            //     File.ReadAllText(baseDir + "clients.json"));
 
-            PrintAndExportEntityToFile(clients, exportDir + "Actual Result - ImportClients.txt");
+            //PrintAndExportEntityToFile(clients, exportDir + "Actual Result - ImportClients.txt");
         }
 
         private static void ExportEntities(TrucksContext context, string exportDir)

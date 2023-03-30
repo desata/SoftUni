@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using Trucks.Utilities;
 
 namespace Trucks.Data.Models
 {
@@ -12,11 +12,11 @@ namespace Trucks.Data.Models
 
         public int Id { get; set; }
 
-        [MaxLength(40)]
+        [MaxLength(ValidationConstants.ClientNameMaxLength)]
         [Required]
         public string Name { get; set; } = null!;
 
-        [MaxLength(40)]
+        [MaxLength(ValidationConstants.ClientNationalityMaxLength)]
         [Required]
         public string Nationality  { get; set; } = null!;
 

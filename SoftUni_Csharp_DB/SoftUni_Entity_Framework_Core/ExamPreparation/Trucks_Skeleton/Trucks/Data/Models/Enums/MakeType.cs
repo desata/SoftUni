@@ -2,10 +2,10 @@
 {
     public enum MakeType
     {
-        Daf, 
-        Man, 
-        Mercedes, 
-        Scania, 
-        Volvo
+        Daf = 0, 
+        Man = 1, 
+        Mercedes = 2, 
+        Scania = 3, 
+        Volvo = 4
     }
 }

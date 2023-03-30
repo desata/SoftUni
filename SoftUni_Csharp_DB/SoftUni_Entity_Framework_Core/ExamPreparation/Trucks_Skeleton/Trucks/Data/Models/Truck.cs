@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Trucks.Data.Models.Enums;
+using Trucks.Utilities;
 
 namespace Trucks.Data.Models
 {
@@ -13,7 +14,7 @@ namespace Trucks.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(8)]
+        [MaxLength(ValidationConstants.TruckRegistrationNumberLength)]
         public string? RegistrationNumber { get; set; }
 
         [Required]

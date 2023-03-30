@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Trucks.Utilities;
 
 namespace Trucks.Data.Models
 {
@@ -13,7 +14,7 @@ namespace Trucks.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(40)]
+        [MaxLength(ValidationConstants.DespatcherNameMaxLength)]
         [Required]
         public string Name { get; set; } = null!;
 
