@@ -3,7 +3,9 @@
     public class ValidationConstants
     {
         //Client
+        public const int ClientNameMinLength = 3;
         public const int ClientNameMaxLength = 40;
+        public const int ClientNationalityMinLength = 2;
         public const int ClientNationalityMaxLength = 40;
 
 
