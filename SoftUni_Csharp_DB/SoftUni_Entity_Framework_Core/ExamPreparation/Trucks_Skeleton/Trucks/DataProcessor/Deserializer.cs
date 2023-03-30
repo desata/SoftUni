@@ -2,7 +2,6 @@
 {
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
-    using System.Runtime.CompilerServices;
     using System.Text;
     using Data;
     using Newtonsoft.Json;
@@ -97,7 +96,7 @@
 
             ICollection<int> existingTruckIds = context.Trucks.Select(t => t.Id).ToArray();
 
-            foreach (var clientDto in clientDtos)
+            foreach (ImportClientDto clientDto in clientDtos)
             {
                 if (!IsValid(clientDto))
                 {
@@ -142,7 +141,7 @@
 
             }
             context.Clients.AddRange(validClients);
-            //context.SaveChanges();
+            context.SaveChanges();
 
             return sb.ToString().TrimEnd();
 
