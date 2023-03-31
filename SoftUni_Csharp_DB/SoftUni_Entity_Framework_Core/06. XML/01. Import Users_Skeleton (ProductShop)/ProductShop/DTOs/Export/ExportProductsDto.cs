@@ -13,9 +13,9 @@ namespace ProductShop.DTOs.Export
     {
         [XmlElement("name")]
         [Required]
-        public string Name { get; set; } = null!;
+        public string ProductName { get; set; } = null!;
 
         [XmlElement("price")]
-        public decimal Price { get; set;}
+        public decimal ProductPrice { get; set;}
     }
 }

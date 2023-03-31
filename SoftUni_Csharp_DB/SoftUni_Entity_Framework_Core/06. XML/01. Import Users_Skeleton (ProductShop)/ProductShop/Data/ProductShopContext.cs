@@ -34,7 +34,7 @@
             {
                 entity.HasKey(x => new { x.CategoryId, x.ProductId});
             });
-            
+
             //modelBuilder.Entity<Product>(entity =>
             //{
             //    entity.Property(b => b.BuyerId).IsRequired(false);

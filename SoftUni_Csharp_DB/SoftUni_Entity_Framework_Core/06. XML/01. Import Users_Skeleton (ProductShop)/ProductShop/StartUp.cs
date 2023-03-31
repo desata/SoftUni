@@ -1,4 +1,5 @@
-﻿using ProductShop.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProductShop.Data;
 using ProductShop.DTOs.Export;
 using ProductShop.DTOs.Import;
 using ProductShop.Models;
@@ -15,8 +16,8 @@ namespace ProductShop
             ProductShopContext context = new ProductShopContext();
 
             string inputXml = File.ReadAllText(@"../../../Datasets/categories-products.xml");
-                        
-            string result = GetSoldProducts(context);
+
+            string result = GetUsersWithProducts(context);
             Console.WriteLine(result);
         }
 
@@ -78,7 +79,7 @@ namespace ProductShop
         }
 
         public static string ImportCategories(ProductShopContext context, string inputXml)
-        {         
+        {
             xmlHelper = new XmlHelper();
 
             ImportCategoryDto[] categoryDtos = xmlHelper.Deserialize<ImportCategoryDto[]>(inputXml, "Categories");
@@ -88,8 +89,8 @@ namespace ProductShop
             foreach (ImportCategoryDto categoryDto in categoryDtos)
             {
                 Category category = new Category()
-                { 
-                Name =categoryDto.Name
+                {
+                    Name = categoryDto.Name
                 };
 
                 validCategories.Add(category);
@@ -103,7 +104,7 @@ namespace ProductShop
         }
 
         public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
-        { 
+        {
             xmlHelper = new XmlHelper();
 
             ImportCategoryProductsDto[] categoryProductsDtos = xmlHelper.Deserialize<ImportCategoryProductsDto[]>(inputXml, "CategoryProducts");
@@ -113,16 +114,16 @@ namespace ProductShop
             foreach (ImportCategoryProductsDto categoryProductsDto in categoryProductsDtos)
             {
                 CategoryProduct categoryProduct = new CategoryProduct()
-                { 
-                CategoryId = categoryProductsDto.CategoryId,
-                ProductId = categoryProductsDto.ProductId
+                {
+                    CategoryId = categoryProductsDto.CategoryId,
+                    ProductId = categoryProductsDto.ProductId
                 };
                 validCategoryProducts.Add(categoryProduct);
             }
             context.CategoryProducts.AddRange(validCategoryProducts);
             context.SaveChanges();
 
-            return $"Successfully imported {validCategoryProducts.Count}"; 
+            return $"Successfully imported {validCategoryProducts.Count}";
         }
 
 
@@ -135,17 +136,16 @@ namespace ProductShop
                 .OrderBy(p => p.Price)
                 .Take(10)
                 .Select(p => new ExportProductsInRangeDto
-                { 
+                {
                     Name = p.Name,
                     Price = p.Price,
-                   // Buyer = p.Buyer.FirstName + " " + p.Buyer.LastName
-                   Buyer = $"{p.Buyer.FirstName} {p.Buyer.LastName}"
+                    Buyer = $"{p.Buyer.FirstName} {p.Buyer.LastName}"
                 })
                 .ToArray();
 
             return xmlHelper.Serialize(products, "Products");
 
-            
+
         }
 
 
@@ -164,13 +164,71 @@ namespace ProductShop
                     SoldProducts = u.ProductsSold
                         .Select(ps => new ExportProductsDto
                         {
-                            Name = ps.Name,
-                            Price = ps.Price,
+                            ProductName = ps.Name,
+                            ProductPrice = ps.Price,
                         }).ToArray()
                 })
                 .ToArray();
 
             return xmlHelper.Serialize(users, "Users");
+        }
+
+        public static string GetCategoriesByProductsCount(ProductShopContext context)
+        {
+            XmlHelper xmlHelper = new XmlHelper();
+
+            var categories = context.Categories
+                .Select(c => new ExportCathegoriesDto
+                {
+                    Name = c.Name,
+                    Count = c.CategoryProducts.Count(),
+                    AveragePrice = c.CategoryProducts.Average(p => p.Product.Price),
+                    TotalRevenue = c.CategoryProducts.Sum(p => p.Product.Price)
+                })
+                .OrderByDescending(c => c.Count)
+                .ThenBy(c => c.TotalRevenue)
+                .ToArray();
+
+            return xmlHelper.Serialize(categories, "Categories");
+        }
+
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            XmlHelper xmlHelper = new XmlHelper();
+
+            var usersWithSoldProductDto = context.Users.Where(u => u.ProductsSold.Any())
+            .OrderByDescending(u => u.ProductsSold.Count)
+            .Select(u => new ExportUsersWithProductsDto
+            {
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                Age = u.Age,
+                SoldProducts = new ExportProductsCountDto()
+                {
+                    ProductsCount = u.ProductsSold.Count,
+                    Products = u.ProductsSold
+                    .Select(p => new ProductsDto()
+                    {
+                        ProductName = p.Name,
+                        ProductPrice = p.Price
+                    })
+                    .OrderByDescending(p => p.ProductPrice)
+                    .ToArray()
+                }
+            })
+            .Take(10)
+            .ToArray();
+
+            ExportUsersCountDto usersAndProducts = new ExportUsersCountDto()
+            {
+                UsersCount = context.Users.Count(u => u.ProductsSold.Any()),
+                Users = usersWithSoldProductDto
+
+            };
+
+
+
+            return xmlHelper.Serialize(usersAndProducts, "Users");
         }
     }
 }

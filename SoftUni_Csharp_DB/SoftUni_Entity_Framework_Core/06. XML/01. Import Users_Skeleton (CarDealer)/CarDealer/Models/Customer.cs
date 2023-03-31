@@ -1,15 +1,18 @@
-﻿namespace CarDealer.Models
+﻿namespace CarDealer.Models;
+
+public class Customer
 {
-    public class Customer
+    public Customer()
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; } = null!;
-
-        public DateTime BirthDate { get; set; }
-
-        public bool IsYoungDriver { get; set; }
-
-        public ICollection<Sale> Sales { get; set; } = new List<Sale>(); 
+        this.Sales = new HashSet<Sale>();
     }
+    public int Id { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public DateTime BirthDate { get; set; }
+
+    public bool IsYoungDriver { get; set; }
+
+    public virtual ICollection<Sale> Sales { get; set; }
 }
