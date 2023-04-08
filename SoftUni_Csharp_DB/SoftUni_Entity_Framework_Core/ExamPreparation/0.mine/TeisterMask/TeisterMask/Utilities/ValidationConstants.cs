@@ -1,23 +1,23 @@
-﻿namespace Footballers.Utilities
+﻿namespace TeisterMask.Utilities
 {
     public class ValidationConstants
     {
-        //Footballer
-        public const int FootballerNameMinLength = 2;
-        public const int FootballerNameMaxLength = 40;
+        //Employee
+        public const int EmployeeUsernameMinLength = 3;
+        public const int EmployeeUsernameMaxLength = 40;
+        //Should contain only lower or upper case letters and/or digits
+        public const string EmployeeUsernameRegex = @"^[A-Za-z0-9]{3, }$";
+        //Consists only of three groups (separated by '-'), the first two consist of three digits and the last one – of 4 digits. (required)
+        public const string EmployeePhoneRegex = @"^\d{3}\-\d{3}\-\d{4}$";
 
 
-        //Team
-        public const int TeamNameMaxLength = 40;
-        public const int TeamNameMinLength = 3;
-        public const int NationalityNameMinLength = 2;
-        public const int NationalityNameMaxLength = 40;
+        //Project
+        public const int ProjectNameMinLength = 2;
+        public const int ProjectNameMaxLength = 40;
 
-        //•	Name – text with length [3, 40]. Should contain letters (lower and upper case), digits, spaces, a dot sign ('.') 
-        // public const string TruckPlateRegex = @"([A-Z]{2})(\d{4})([A-Z]{2})";
+        //Task
+        public const int TaskNameMinLength = 2;
+        public const int TaskNameMaxLength = 40;
 
-        //Coach        
-        public const int CoachNameMinLength = 2;
-        public const int CoachNameMaxLength = 40;
     }
 }

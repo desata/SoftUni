@@ -21,9 +21,11 @@
 
             var projectDir = GetProjectDirectory();
 
+            //02
             ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
-
-            ExportEntities(context, projectDir + @"ExportResults/");
+            
+            //03
+            //ExportEntities(context, projectDir + @"ExportResults/");
 
             using (var transaction = context.Database.BeginTransaction())
             {

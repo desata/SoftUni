@@ -1,4 +1,4 @@
-﻿namespace Footballers.Utilities
+﻿namespace TeisterMask.Utilities
 {
     using System.Text;
     using System.Xml.Serialization;
