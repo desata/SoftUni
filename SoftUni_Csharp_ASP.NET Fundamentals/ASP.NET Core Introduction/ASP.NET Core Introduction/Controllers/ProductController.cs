@@ -1,4 +1,5 @@
 ﻿using ASP.NET_Core_Introduction.Models.Product;
+using AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NET_Core_Introduction.Controllers
@@ -26,11 +27,11 @@ namespace ASP.NET_Core_Introduction.Controllers
                 Price = 1.30
             },
         };
-    }
 
-    public IActionResult All()
-    {
+        public IActionResult All()
+        {
 
-        return View();
+            return View(_products);
+        }
     }
 }
