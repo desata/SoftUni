@@ -1,0 +1,21 @@
+﻿@{
+    int number = ViewBag.number;
+    ViewBag.Title = "Nums 1..." + number;
+}
+
+<h2>@ViewBag.Title</h2>
+<ul>
+    @for (int i = 1; i <= number; i++)
+    {
+        <li>@i</li>
+    }
+</ul>
+
+<div class="d-flex align-items-start">
+<form>
+    <div class="input-group">
+        <input name="number" class="form-control rounded"/>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
+</form>
+</div>

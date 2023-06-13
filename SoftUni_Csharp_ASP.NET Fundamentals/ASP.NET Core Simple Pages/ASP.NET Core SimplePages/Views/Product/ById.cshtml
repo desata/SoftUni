@@ -1,0 +1,14 @@
+﻿@using ASP.NET_Core_SimplePages.Models.Product;
+@model ProductViewModel
+
+@{
+    ViewBag.Title = "Products ID" + Model.Id;
+}
+
+<div class="card" style="width: 18rem;">
+    <div class="card-header">@ViewBag.Title</div>
+        <div class="card-body">
+            <h5 class="card-title">Product Name: @Model.Name</h5>
+            <p class="card-text">Price: $@Model.Price</p>
+    </div>
+</div>
