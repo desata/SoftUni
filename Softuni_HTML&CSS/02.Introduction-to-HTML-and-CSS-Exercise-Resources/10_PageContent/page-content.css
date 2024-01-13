@@ -1,0 +1,39 @@
+/* section {
+    margin-left: 20px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #ccc;
+
+}
+h1 {
+    size: 28px;
+}
+
+p {
+    font-style: italic;
+}
+
+.paragraph {
+    size: 28px;
+} */
+section{
+    margin-left: 20px;
+}
+header{
+    font-size: 28px;
+    p{
+        font-size: 24px;
+        font-style: italic;
+    }
+}
+p{
+    font-size: 24px;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #CCCCCC;
+}
