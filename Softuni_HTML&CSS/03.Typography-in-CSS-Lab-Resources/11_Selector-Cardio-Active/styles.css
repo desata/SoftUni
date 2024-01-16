@@ -8,3 +8,11 @@
     color: black;
     cursor: pointer;
   }
+
+  button:hover{
+    background-color: red;
+  }
+
+  button:active {
+    background-color: blue;
+  }
