@@ -1,1 +1,18 @@
-/* TODO: style the html */
+body {
+    font: 18px/1.5 Helvetica, sans-serif;
+    background-color: #ededed;
+}
+
+h2 {
+    background-color: #3b516b;
+    color: floralwhite;
+    text-decoration: underline;
+    padding: 20px;
+    margin: 10px 10px 5px 5px;
+    letter-spacing: 3px;
+    border-radius: 10px;
+}
+
+li {
+    margin-left: 20px;
+}
