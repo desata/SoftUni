@@ -1,0 +1,21 @@
+
+article {
+    
+    font: 16px/1.5 "Raleway", sans-serif;
+}
+
+h1, h2 {
+    font-family: 'Great Vibes', cursive;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+ul li {
+    list-style-type: disc;
+
+}
+
+.third li{
+    list-style-type: circle;
+}
+
