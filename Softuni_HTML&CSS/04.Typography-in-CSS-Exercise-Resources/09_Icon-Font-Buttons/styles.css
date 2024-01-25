@@ -1,1 +1,28 @@
-/* TODO: style the html */
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
+body {
+    font: 18px/3 Arial serif;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5.40px;
+    padding: 12.6px 27px;
+}
+
+a:hover {
+    color: #eee;
+}
+
+i {
+    padding-right: 5.40px;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
