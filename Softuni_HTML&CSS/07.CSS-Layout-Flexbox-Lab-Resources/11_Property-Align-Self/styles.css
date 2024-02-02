@@ -16,3 +16,7 @@
   padding: 20px;
   font-size: 30px;
 }
+
+.flex-container > div:nth-child(2) {
+  align-self: center;
+}
