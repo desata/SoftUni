@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px/1.5 Helvetica, serif;
+    padding: 2em;
+}
+
+header {
+    border-bottom: 2px solid #000;
+    display: flex;
+}
+
+header p {
+    font: 2em Roboto, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+header nav {
+    flex: 1 0 auto;    
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: end;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding: 1em;
+}
+
+header nav ul li a {
+    color:rgb(0, 153, 0);
+    text-decoration: none;
+}
