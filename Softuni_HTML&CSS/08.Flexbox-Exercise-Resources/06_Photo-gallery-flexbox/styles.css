@@ -1,0 +1,43 @@
+/* <!-- Change the body, ul and li display property to flex -->
+<!-- Set the ul property justify-content to be equal to space-between --> */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 2em;
+    display: flex;
+    background-color: #ccc;
+}
+
+.gallery {
+    margin: 0 auto;
+    max-width: 50em;
+}
+
+.gallery ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+
+}
+
+.gallery li {
+    background-color: #fff;
+    border: 5px solid #000;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+    flex: 0 0 200px;
+    padding: 0.5em;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    
+}
+
+img {
+    display:block;
+    width: 100%;
+    height: auto;
+}
