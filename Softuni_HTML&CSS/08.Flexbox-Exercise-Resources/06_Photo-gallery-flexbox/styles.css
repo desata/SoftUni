@@ -27,7 +27,8 @@ body {
 .gallery li {
     background-color: #fff;
     border: 5px solid #000;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3),
+    0 0 1em 0 rgba(0, 0, 0, 0.3) inset;
     flex: 0 0 200px;
     padding: 0.5em;
     list-style: none;
