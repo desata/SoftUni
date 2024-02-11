@@ -3,6 +3,9 @@
     .home-navbar{
         padding: 0.8em 0.5em 0.8em 2.8em
     }
+    .home-link.Anchor{
+        color: #0000EE;
+    }
     .home-cta-btn.button.Anchor {
         font-size: 15px;
     }
