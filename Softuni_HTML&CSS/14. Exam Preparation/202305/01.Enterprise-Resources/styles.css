@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+body {
+    background-color: #D9D9D9;    
+    padding: 3em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+article {
+    box-shadow: 0.5em 0.5em 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.media img {
+    aspect-ratio: 16/9;
+}
+
+.media-author img {
+    width: 3em;
+    height: 3em;
+    border-radius: 30px;
+}
+
+.section-content {
+    display: flex;
+    gap: 2em;
+}
+
+.section-content article {
+    flex: 1 1 30%;
+}
+
+.title {
+    font-weight: 700;
+    color: #595959;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-weight: 300;    
+}
+
+.details {
+    padding: 2em;
+}
+
+.description {
+    color: #595959;
+    font-weight: 400;
+    margin: 2em 0;
+}
+
+.information {
+    border-bottom: 1px solid #000;
+}
+
+.section-author {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+
+}
+
+.author-text {
+    display: flex; 
+    flex: 1 1 100%;
+    padding: 0 0.5em;
+    justify-content: space-between;
+}
+
+.min-read {
+    color: #999;
+}
