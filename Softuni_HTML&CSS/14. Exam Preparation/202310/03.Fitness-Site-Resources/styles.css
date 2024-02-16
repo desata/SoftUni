@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 Verdana, san-serif;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0;
+}
