@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2em;
+    font-family: Agbalumo;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+span {
+    font-weight: 700;
+}
+
+h2, h4 {
+    border-bottom: 2px solid #000;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+
+h4 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.container {
+    width: 840px;
+    margin: 0 auto;
+    border: 2px solid #000;
+    }
+
+.map-container{
+    border: 2px solid #000;
+    padding: 10px;
+}
+.map-container p {
+    font-size: 11px;
+    padding-top: 1.5em;
+}
+
+p {
+    text-indent: 2em;
+}
+.heading {
+    text-align: center;
+}
+
+.heading,
+.facts-info {
+    background-color: #D5EBEA;
+    padding: 1.5em 1.5em 0 1.5em;
+}
+
+.information-container {
+    display:flex;
+    padding: 1.5em;
+    gap: 1.5em;
+}
+
+.text-container {
+    padding-top: 1em;
+}
+
+.facts-heading span{
+    font-size: 1.3em;
+    padding: 0 3em;
+    background-color: #000;
+    color: #fff
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.facts-info {
+    padding: 0.5em 0.5em;
+    line-height: 2;
+}

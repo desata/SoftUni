@@ -1,0 +1,136 @@
+@media (max-width: 600px) {
+
+    .home-container{
+        padding-top: 40px;
+    }
+
+    .home-navbar {
+        height: 22px;
+        position: absolute;
+    }
+
+    .home-navbar1 {
+        display: none;
+    }
+
+    .home-main {
+        padding-bottom: 12px;
+    }
+    .section-heading-section-heading {
+        margin-bottom: 18px;
+    }
+    .section-container {
+        padding-top: 0;
+        flex-direction: column;
+    }
+
+    .Heading-2 {
+        font-size: 22px;
+    }
+
+    .section-heading-text {
+        margin-bottom: 5px;
+    }
+
+    .section-heading-text1 {
+        font-size: 12px;
+    }
+
+    .max-width-container {
+        padding: 1em;
+    }
+
+    .home-cards-container {
+        grid-gap: 0;
+        justify-content: space-around;
+    }
+
+    .category-card-image {
+        width: 185px;
+        height: 185px;
+        margin: 16px 0;
+    }
+
+    .home-content {
+        margin: 0;
+    }
+
+    .home-text29 {
+        font-size: 20px;
+        margin: 16px 0;
+    }
+
+    .home-text30,
+    .home-text31 {
+        width: 100%;
+        padding: 0 1em;
+        font-size: 12px;
+    }
+
+    .button {
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+
+    .home-btn {
+        margin-top: 1em;
+        margin-bottom: 2em;
+    }
+
+    .home-image6 {
+        width: 100%;
+    }
+
+    .home-container07 {
+        margin-top: 60px;
+    }
+
+    .home-text23,
+    .home-text33,
+    .home-text36,
+    .home-text37,
+    .category-card-text,
+    .blog-post-card-text1,
+    .home-text39,
+    .home-text40,
+    .home-text41,
+    .home-text42,
+    .home-text43,
+    .home-text44,
+    .home-text46,
+    .home-text50,
+    .home-text52,
+    .home-text53,
+    .home-text54,
+    .home-text55 {
+        font-size: 12px;
+        /* padding: 8px; */
+    }
+
+    .blog-post-card-text {
+        font-size: 18px;
+    }
+
+    .home-footer1 {
+        flex-direction: column-reverse;
+        padding-bottom: 36px;
+        padding-top: 18px;
+    }
+
+    .home-links-container {
+        flex-direction: column;
+        padding-bottom: 1.5em;
+        grid-gap: 2em;
+    }
+
+    .home-text38,
+    .home-text45,
+    .home-text51 {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+
+
+}
+
+/* 13:55 - 15:24 */

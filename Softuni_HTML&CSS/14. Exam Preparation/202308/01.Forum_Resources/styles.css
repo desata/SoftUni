@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter;
+    font-size: 20px;
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1630px;
+    margin: 0 auto;
+    padding: 5em;
+}
+
+.section-content {
+    display: flex;
+    gap: 2em;
+}
+
+.section-content .section-left {
+    flex: 1 0 65%;
+    flex-direction: column;
+}
+
+article {
+    background-color: #fff;
+    padding: 1.5em;
+}
+
+.section-left article {
+    display: flex;
+    padding: 2em;
+}
+
+.info {
+    flex: 1 0 60%;
+}
+
+.description p , .job-title{
+    color: #595959;
+    padding: 2em 0;
+}
+
+.author p {
+    font-size: 29px;
+    font-weight: bold;
+}
+
+.media {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.media-right {
+    width: 100px;
+    height: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #fff;
+}
