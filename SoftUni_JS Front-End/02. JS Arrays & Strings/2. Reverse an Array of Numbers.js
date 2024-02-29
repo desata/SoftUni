@@ -7,7 +7,6 @@ function solve(n, input) {
     for (let i = n-1; i >= 0; i--) {
         output += arr[i] + ' ';
     }
-
         console.log(output);
 }
 solve(3, [10, 20, 30, 40, 50]);
