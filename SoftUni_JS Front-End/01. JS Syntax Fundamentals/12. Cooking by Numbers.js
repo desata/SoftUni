@@ -20,7 +20,7 @@ function solve(number, action1, action2, action3, action4, action5) {
         else if (action[i] == 'fillet') {
             result *= 0.8;
         }
-        console.log(result.toFixed(1));
+        console.log(result);
     }
 }
 
