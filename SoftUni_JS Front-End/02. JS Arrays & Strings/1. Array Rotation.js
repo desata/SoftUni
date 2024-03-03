@@ -12,6 +12,7 @@ function solve(array, rotateNums) {
             result += array[i] + ' ';
         }
         console.log(result);
+        
 }
 
 solve([51, 47, 32, 61, 21], 62);
