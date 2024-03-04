@@ -3,11 +3,9 @@ function solve(arrayOfNumbers) {
     let result = [];
     while (sortedArray.length > 0) {
 
-       // let firstNumber = 
         result.push(sortedArray.shift());
         result.push(sortedArray.pop());
     }
-
         console.log(result);
 }
 
