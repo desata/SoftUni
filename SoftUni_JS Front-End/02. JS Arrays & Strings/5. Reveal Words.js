@@ -11,7 +11,7 @@ function solve(words, sentence){
     for (let word of words){
         sentence = sentence.replace('*'.repeat(word.length), word);
     }
-console.log(sentence);
+//console.log(sentence);
     return sentence;
 
 }
