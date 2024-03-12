@@ -1,12 +1,9 @@
 function checkNegative(numOne, numTwo, numThree) {
     let result = 'Positive';
-
     const multiply = (a, b) => a * b;
-
     if(multiply((multiply(numOne, numTwo)), numThree) < 0){
         result = 'Negative'
     }
-
     console.log(result);
 }
 
