@@ -16,14 +16,6 @@ function isPalindrome(numbers){
         }
     }    
 
-    // function reverseNumber(number){
-    //     while(number > 0){
-    //     let digit = number % 10;
-        
-    //     number = (number / 10) - digit*0.1;
-    //     }
-    // }
-
 }
 
 isPalindrome([123,323,421,121])
