@@ -1,11 +1,18 @@
-function solve(input){
+function solve(input) {
     const employees = [];
 
     for (const record of input) {
-        employees.push(record);
+        const employee = {
+            name: record,
+            personalNum: record.length,
+        }
+        employees.push(employee);
     }
 
-    console.log(employees);
+    for (const employee of employees) {
+        console.log(`Name: ${employee.name} -- Personal Number: ${employee.personalNum}`)
+    }
+
 }
 
 solve([
@@ -13,5 +20,5 @@ solve([
     'Adnaan Buckley',
     'Juan Peterson',
     'Brendan Villarreal'
-    ]
-    );
+]
+);
