@@ -8,4 +8,4 @@ function extract(elementId) {
         match = pattern.exec(para);
     }
     return result.join('; ');
-}    
+} 

@@ -17,7 +17,7 @@ namespace Library.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.16")
+                .HasAnnotation("ProductVersion", "6.0.28")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -26,50 +26,40 @@ namespace Library.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasComment("BookId");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Author")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Book Author");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("CategoryId")
-                        .HasColumnType("int")
-                        .HasComment("Book CategoryId");
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(5000)
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Book Description");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasComment("Book ImageUrl");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Rating")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)")
-                        .HasComment("Book Rating");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Book Title");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
-
-                    b.HasComment("Library Books");
 
                     b.HasData(
                         new
@@ -88,22 +78,18 @@ namespace Library.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasComment("Category Id");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Category Name");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasComment("Book's Category");
 
                     b.HasData(
                         new
@@ -137,19 +123,17 @@ namespace Library.Data.Migrations
                 {
                     b.Property<int>("BookId")
                         .HasColumnType("int")
-                        .HasComment("BookId");
+                        .HasColumnOrder(2);
 
                     b.Property<string>("CollectorId")
                         .HasColumnType("nvarchar(450)")
-                        .HasComment("UserId");
+                        .HasColumnOrder(1);
 
                     b.HasKey("BookId", "CollectorId");
 
                     b.HasIndex("CollectorId");
 
-                    b.ToTable("IdentityUserBook");
-
-                    b.HasComment("User's Books");
+                    b.ToTable("IdentityUsersBooks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -367,7 +351,7 @@ namespace Library.Data.Migrations
 
             modelBuilder.Entity("Library.Data.Models.IdentityUserBook", b =>
                 {
-                    b.HasOne("Library.Data.Models.Book", "Book")
+                    b.HasOne("Library.Data.Models.Book", null)
                         .WithMany("UsersBooks")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -378,8 +362,6 @@ namespace Library.Data.Migrations
                         .HasForeignKey("CollectorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Book");
 
                     b.Navigation("Collector");
                 });

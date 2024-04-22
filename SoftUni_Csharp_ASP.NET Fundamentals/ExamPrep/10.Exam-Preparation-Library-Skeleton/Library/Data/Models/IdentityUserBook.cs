@@ -1,33 +1,23 @@
-﻿using Library.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.Data.Models
 {
-
-    [Comment("User's Books")]
     public class IdentityUserBook
     {
-        [Comment("UserId")]
+        [Key]
+        [Column(Order = 1)]
         public string CollectorId { get; set; } = null!;
 
-        [Comment("User")]
-        [ForeignKey(nameof(CollectorId))]
+        [ForeignKey("CollectorId")]
         public IdentityUser Collector { get; set; } = null!;
 
-        [Comment("BookId")]
-        [Required]        
+        [Key]
+        [Column(Order = 2)]
         public int BookId { get; set; }
 
-        [Comment("Book")]
-        [ForeignKey(nameof(BookId))]
-        public Book Book { get; set; } = null!;
+        [ForeignKey("BookId")]
+        public Book Book = new Book();
     }
 }
-
-//CollectorId – a string, Primary Key, foreign key (required)
-//Collector – IdentityUser
-//BookId – an integer, Primary Key, foreign key (required)
-//Book – Book
